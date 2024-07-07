@@ -1,0 +1,130 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    padding-top: 50px;
+    overflow: hidden;
+    gap: 50px;
+    position: relative;
+}
+.animation {
+    background-image: url(../img/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 312px;
+    width: 80%;
+    min-width: 250px;
+    margin: 0 auto;
+    min-height: 218px;
+    height: 40vh;
+    max-height: 350px;
+    background-color: black;
+    border-radius: 40px;
+}
+.hello {
+    position: absolute;
+    top: 60%;
+    padding: 50px 24px;
+    margin: auto;
+    background-color: black;
+    height: 322px;
+    border-radius: 40px;
+    min-height: 563px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.hello *{
+    color: #FFFFFF;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    
+}
+.hello__title {
+    text-align: center;
+    margin-bottom: 34px;
+}
+.hello__text {
+    max-width: 312px;
+    text-align: center;
+    margin-bottom: 32px;
+    margin: 0 auto 32px;
+}
+.hello__registry {
+    color: black;
+    padding: 19px 20px;
+    min-width: 250px;
+    border-radius: 20px;
+    margin: auto;
+    display: block;
+
+}
+
+.hello__telegram{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__container{
+    margin-top: calc(100vh + 70px);
+}
+
+.form__container form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 312px;
+    margin: 0 auto;
+}
+
+.form__container input {
+    border-radius: 20px;
+    padding: 14px 20px;
+    border: solid 1px #232323;
+}
+.submit{
+    padding: 19px 20px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+
+.quiz {
+    margin-top: 30vh;
+    min-height: 90vh;
+    border-radius: 40px 40px 0 0;
+    background-color: black;
+    /* border-radius: 40px; */
+}
+.quiz__indicator {
+    display: flex;
+    padding:  50px 24px;
+    justify-content: space-between;
+}
+.quiz__indicator * {
+    width: 49%;
+    background-color: rgba(255, 255, 255, 0.21);
+    height: 1px;
+
+}
+
+.active{
+    background-color: white;
+}
+.quiz__container {
+}
+.quiz__slider {
+}
+.quiz__slider_title {
+}
+.quiz__slider_container {
+}
+.quiz__slide {
+}
+.quiz__question {
+}
