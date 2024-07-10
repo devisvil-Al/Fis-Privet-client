@@ -34,26 +34,14 @@ async function submitForm(e) {
     e.preventDefault()
     data.profile.firstName = e.target.elements.firstName.value
     data.profile.lastName = e.target.elements.lastName.value
-    //    try{ 
-        
-    //         const {firstName, lastName} = e.target.elements
-    //         const body = {
-        //             firstName: firstName.value,
-        //             lastName: lastName.value
-        //         }
-        //         const res = await api.registry(body)
-        //         if (res.ok) {
-            //             const data = await res.json()
-            //         }else {
-                //             alert('Error')
-                //         }
-                //     } catch (e) {
-                    //         alert('Error')
-                    //     }
-                    scrollMain(6000)
+   
+    scrollMain(6000)
 }
                 
-// api.getContact()
+api.getContact()
+    .then((res) => {
+        registry.elements.firstName.value =  res.from.first_name
+    })
                 
                 
 function enableValidation(selectorInput, selectorSubmit){

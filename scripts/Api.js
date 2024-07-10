@@ -13,13 +13,8 @@ class Api {
     }
 
     getContact(){
-        return fetch(this.url + 'webhook', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-        })
+        return fetch(this.url + 'user')
+            .then(res => res.json())
     }
 
 
