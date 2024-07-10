@@ -48,15 +48,26 @@
             </div>
             <div class="quiz__container">
                 <div class="quiz__slider">
-                    <h2 class="quiz__slider_title">Выберите любимый спортивный клуб</h2>
+                    <h2 class="quiz__slider_title">Name, выберите любимое спортивное общество</h2>
                     <div class="quiz__slider_container">
-                        <div class="quiz__slide"></div>
-                        <div class="quiz__slide"></div>
-                        <div class="quiz__slide"></div>
-                        <div class="quiz__slide"></div>
+                        <div class="quiz__slide slide__active"><img src="./img/dinamo.svg" alt="Динамо"></div>
+                        <div class="quiz__slide"><img src="./img/kristall.svg" alt="Кристалл"></div>
+                        <div class="quiz__slide"><img src="./img/CSKA.svg" alt="ЦСКА"></div>
                     </div>
                 </div>
-                <div class="quiz__question"></div>
+                <div class="quiz__question">
+                    <h2>Выберите интересующую вас команду</h2>
+                    <form action="">
+                        <input type="checkbox" name="Женская пляжная команда" class="form__input_check"><label for="">Женская пляжная команда</label>
+                        <input type="checkbox" name="Женская мини-футбольная команда" class="form__input_check"><label for="">Женская мини-футбольная команда</label>
+                        <input type="checkbox" name="Мужская мини-футбольная команда" class="form__input_check"><label for="">Мужская мини-футбольная команда</label>
+                        <input type="checkbox" name="Мужская пляжная команда" class="form__input_check"><label for="">Мужская пляжная команда</label>
+                    </form>
+                </div>
+            </div>
+            <div class="quiz__slider_controller">
+                <button class="slider__btn left__btn " disabled><img src="./img/leftVector.svg" alt=""></button>
+                <button class="slider__btn right__btn " disabled><img src="./img/rightVector.svg" alt=""></button>
             </div>
         </section>
 
