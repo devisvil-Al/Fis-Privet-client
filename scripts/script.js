@@ -69,13 +69,15 @@ function scrollCommand(e){
     slides.forEach((el) => el.classList.remove('slide__active'))
     const countElement = Math.ceil((fullrange - 80) / range) 
     elements[countElement].classList.add('slide__active')
+    data['team'] = elements[countElement].querySelector('img').alt
+    rightBtn.disabled = false
 }
 
 function activeSlide(el){
     slides.forEach((el) => el.classList.remove('enableSlide'))
     el.classList.add('enableSlide')
     data['team'] = el.querySelector('img').alt
-    rightBtn.disabled = false
+ 
 }
 
 function enableVariant(el){
@@ -104,6 +106,6 @@ rightBtn.addEventListener('click', () => {
     quizIndicators.forEach(item => item.classList.remove('active'))
     quizIndicators[count].classList.add('active')
 })
-slides.forEach((el) => el.addEventListener('click', () => activeSlide(el)))
+// slides.forEach((el) => el.addEventListener('click', () => activeSlide(el)))
 formCheckInputs.forEach((el) => el.addEventListener('click', () => enableVariant(el)))
 enableValidation('.form__container input', '.submit')

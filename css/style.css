@@ -159,6 +159,7 @@ body{
 
 .slide__active{
     transform: scale(1.2);
+    background-color: #DA6713;
 }
 .quiz__slide img{
     width: 100%;
