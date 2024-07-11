@@ -1,9 +1,12 @@
+'http://localhost:3000/'
+'https://fisprivet.onrender.com/'
+
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
-        return fetch(this.url + 'registry', {
+        return fetch(this.url + 'user/registry', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,6 +20,15 @@ class Api {
             .then(res => res.json())
     }
 
+    checkUser(id){
+        return fetch(this.url + 'user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id})
+        }).then(res => res.json())
+    }
 
 }
 

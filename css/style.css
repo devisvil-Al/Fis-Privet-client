@@ -4,6 +4,53 @@ body{
     margin: auto;
 }
 
+.preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 80px;
+    display: none;
+}
+.modal *{
+    
+    text-align: center;
+}
+.modal img {
+    width: 80%;
+}
+
+.modal-hidden{
+    display: block;
+}
+
+.preloader img{
+    height: 100%;
+    width: 100%;
+}
+
 .main {
     width: 100%;
     display: flex;
@@ -65,7 +112,6 @@ body{
     border-radius: 20px;
     margin: auto;
     display: block;
-
 }
 
 .hello__telegram{
@@ -141,7 +187,8 @@ body{
 .quiz__slider_container {
     display: flex;
     gap: 30px;
-    padding: 25px 95px;
+    padding: 25px 25%;
+    justify-content: space-around;
     overflow-x: scroll;
     width: 100%;
 }
@@ -153,13 +200,24 @@ body{
     border: solid 2px white;
     border-radius: 30px;
     padding: 46px;
-    min-width: 180px;
+    min-width: 100%;
+
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slide__active{
     transform: scale(1.2);
-    background-color: #DA6713;
+    background-color: white;
+}
+
+.disabled {
+    background-image: url(../img/disabled.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 15px 15px;
 }
 .quiz__slide img{
     width: 100%;
@@ -174,7 +232,7 @@ body{
 }
 
 .slider__btn{
-    background-color: white;
+    background-color: #DA6713;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -182,6 +240,13 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.left__btn{
+    background-color: white;
+}
+
+.slider__btn:disabled{
+    background-color: gray;
 }
 
 .enableSlide{
