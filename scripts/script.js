@@ -41,7 +41,7 @@ async function submitForm(e) {
         .then((res) => api.checkUser(res.from.id))
         .then((res) =>  {
             if(res._id){
-                // window.location.href = '../homePage.html'
+                window.location.href = '../homePage.html'
             }
             console.log(res);
             data.telegramId = res.from.id
