@@ -36,23 +36,24 @@ async function submitForm(e) {
     scrollMain(6000)
 }
                 
-
-    api.getContact()
-        .then((res) => api.checkUser(res.from.id))
-        .then((res) =>  {
-            if(res._id){
-                window.location.href = '../homePage.html'
-            }
-            console.log(res);
-            data.telegramId = res.from.id
-            registryTelegramId.textContent = '@' + res.from.username
-            registry.elements[0].value = res.from.first_name 
-            quizUserName.textContent = res.from.first_name
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-        .finally(() => setTimeout( () => { preloader.remove() }, 1000))
+api.getContact()
+.then((res) => api.checkUser(res.from.id))
+.then((res) =>  {
+    if(res._id){
+        window.location.href = '../homePage.html'
+    }
+    console.log(res);
+    data.telegramId = res.from.id
+    data.avatar = res.photo
+    registryTelegramId.textContent = '@' + res.from.username
+    registry.elements[0].value = res.from.first_name 
+    quizUserName.textContent = res.from.first_name
+})
+.catch((err) => {
+    console.log(err)
+}).finally(() => {
+    preloader.remove()
+})
 
                 
                 
@@ -117,8 +118,8 @@ rightBtn.addEventListener('click', () => {
     if(count < 1)count += 1
     quizIndicators.forEach(item => item.classList.remove('active'))
     quizIndicators[count].classList.add('active')
-    
-    if(Object.keys(data).length === 5){
+    console.log(data);
+    if(Object.keys(data).length === 6){
         api.registry(data)
             .then(res =>  {
                 if(res.ok) window.location.href = '../homePage.html'

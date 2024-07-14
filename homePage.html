@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="stylesheet" href="./css/nullstyle.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Home Page</h1>
+    <section class="modal modal__greetings">
+        <h2 class="modal__title">Физкульт-привет, <span class="modal__name"></span></h2>
+        <img src="./img/Кристалл.svg" class="modal__logo" alt="logo">
+    </section>
+
+    <main class="main">
+        <section class="point__container">
+            <h2 class="point__title"> <span class="point">00.000</span>cr</h2>
+            <div class="point__info">
+                <p class="point__level">1 ур. ГРАНИТ</p>
+                <button class="point__description">Подробнее</button>
+            </div>
+        </section>
+
+        <section class="social__container">
+            <button class="social__container_btn raiting__btn">Рейтинг</button>
+            <button class="social__container_btn friends__btn">Друзья</button>
+        </section>
+
+        <section class="slider slider__events">
+            <div class="slide__events">
+                <div class="slide__cri">20cr</div>
+                <p class="slide__title">Подписаться на канал</p>
+                <hr>
+                <button class="slide__btn">собрать</button>
+            </div>
+            <div class="slide__events">
+                <div class="slide__cri">45cr</div>
+                <p class="slide__title">Пригласить друга</p>
+                <hr>
+                <button class="slide__btn">выполнить</button>
+            </div>
+            <div class="slide__events">
+                <div class="slide__cri">30cr</div>
+                <p class="slide__title">Накопить 300 cr</p>
+                <hr>
+                <button class="slide__btn">выполнить</button>
+            </div>
+            <div class="slide__events">
+                <div class="slide__cri">60cr</div>
+                <p class="slide__title">Посетить матч</p>
+                <hr>
+                <button class="slide__btn">выполнить</button>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>
