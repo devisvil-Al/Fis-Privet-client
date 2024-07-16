@@ -16,8 +16,8 @@ async function greethings(){
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     
-    modalGreetings.classList.add('modal-visible')
     main.classList.remove('hidden__main')
+    modalGreetings.classList.add('modal-visible')
     setTimeout( () => { 
         modalGreetings.classList.remove('modal-visible') 
     }, 2000)

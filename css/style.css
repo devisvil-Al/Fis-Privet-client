@@ -3,6 +3,8 @@ body{
     margin: auto;
 }
 
+
+
 .main {
     height: 100vh;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -225,4 +227,9 @@ body{
 }
 .event__address {
     color: white;
+}
+
+.modal-visible{
+    visibility: visible;
+    opacity: 1;
 }
