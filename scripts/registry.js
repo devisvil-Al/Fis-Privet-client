@@ -42,7 +42,6 @@ api.getContact()
     if(res._id){
         window.location.href = '../homePage.html'
     }
-    console.log(res);
     data.telegramId = res.from.id
     data.avatar = res.photo
     registryTelegramId.textContent = '@' + res.from.username

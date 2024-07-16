@@ -1,6 +1,8 @@
 import { api } from "./Api.js";
 
 const modalGreetings = document.querySelector('.modal__greetings')
+const modalName = document.querySelector('.modal__name')
+const main = document.querySelector('.main')
 
 
 async function greethings(){
@@ -15,6 +17,7 @@ async function greethings(){
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     
     modalGreetings.classList.add('modal-visible')
+    main.classList.remove('hidden__main')
     setTimeout( () => { 
         modalGreetings.classList.remove('modal-visible') 
     }, 2000)
