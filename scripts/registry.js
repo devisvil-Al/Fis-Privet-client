@@ -40,8 +40,9 @@ api.getContact()
 .then((res) => api.checkUser(res.from.id))
 .then((res) =>  {
     if(res._id){
-        // window.location.href = '../index.html'
+        window.location.href = '../index.html'
     }
+    data.ref = res.ref
     data.telegramId = res.from.id
     data.avatar = res.photo
     registryTelegramId.textContent = '@' + res.from.username
@@ -65,7 +66,7 @@ function enableValidation(selectorInput, selectorSubmit){
 function send(data){
     api.registry(data)
         .then(res =>  {
-            if(res.ok) window.location.href = '../homePage.html'
+            if(res.ok) window.location.href = '../index.html'
         })
 }
 
@@ -115,7 +116,7 @@ rightBtn.addEventListener('click', () => {
     leftBtn.disabled = false
     if(count < 1) count += 1
     activeBtn(quizIndicators, quizIndicators[count])
-    if(Object.keys(data).length === 6){
+    if(Object.keys(data).length === 7){
         send(data)
     }
 })
