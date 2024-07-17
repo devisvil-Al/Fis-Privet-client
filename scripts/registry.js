@@ -1,5 +1,5 @@
 import { api } from "./Api.js"
-
+import { selectSlide, scrollCommand } from "./Slider.js"
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
@@ -40,7 +40,7 @@ api.getContact()
 .then((res) => api.checkUser(res.from.id))
 .then((res) =>  {
     if(res._id){
-        window.location.href = '../homePage.html'
+        // window.location.href = '../index.html'
     }
     data.telegramId = res.from.id
     data.avatar = res.photo
@@ -62,28 +62,18 @@ function enableValidation(selectorInput, selectorSubmit){
     inputs.forEach(input => input.addEventListener('input', () => validation(input, submit, inputs)))
 }
 
-function scrollCommand(e){
-    const fullrange = e.target.scrollLeft
-    const range = slides[0].clientWidth
-    slides.forEach((el) => el.classList.remove('slide__active'))
-    const countElement = Math.ceil((fullrange - 80) / range) 
-    if( slides[countElement] && !slides[countElement]?.classList.contains('disabled') ){
-        slides[countElement].classList.add('slide__active')
-       data['club'] = slides[countElement].querySelector('img').alt
-       rightBtn.disabled = false
-    } else {
-        data['club'] = slides[countElement].querySelector('img').alt
-        rightBtn.disabled = true
-    }
+function send(data){
+    api.registry(data)
+        .then(res =>  {
+            if(res.ok) window.location.href = '../homePage.html'
+        })
 }
 
-function selectSlide(el){
-    sliderCommand.scroll({
-        left:   el.offsetLeft - (el.clientWidth / 2 + 10) ,
-        behavior: 'smooth'
-    })
-
+function activeBtn (elements, element){
+    elements.forEach(item => item.classList.remove('active'))
+    element.classList.add('active')
 }
+
 
 
 function enableVariant(el){
@@ -93,7 +83,16 @@ function enableVariant(el){
 }
 
 registry.addEventListener('submit', submitForm)
-sliderCommand.addEventListener('scroll', scrollCommand)
+sliderCommand.addEventListener('scroll', (e) => {
+    const countElement = scrollCommand (e, slides)
+    if( slides[countElement] && !slides[countElement]?.classList.contains('disabled') ){
+        slides[countElement].classList.add('slide__active')
+       data['club'] = slides[countElement].querySelector('img').alt
+       rightBtn.disabled = false
+    } else {
+        rightBtn.disabled = true
+    }
+})
 registryBtn.addEventListener('click', () => scrollMain(700))
 
 leftBtn.addEventListener('click', () => {
@@ -105,26 +104,23 @@ leftBtn.addEventListener('click', () => {
     leftBtn.disabled = false
     rightBtn.disabled = false
     count -= 1
-    quizIndicators.forEach(item => item.classList.remove('active'))
-    quizIndicators[count].classList.add('active')
+    activeBtn(quizIndicators, quizIndicators[count])
 })
+
 
 
 rightBtn.addEventListener('click', () => {
     quiz.scroll({left: quiz.clientWidth + 20, behavior: 'smooth'})
     rightBtn.disabled = true
     leftBtn.disabled = false
-    if(count < 1)count += 1
-    quizIndicators.forEach(item => item.classList.remove('active'))
-    quizIndicators[count].classList.add('active')
-    console.log(data);
+    if(count < 1) count += 1
+    activeBtn(quizIndicators, quizIndicators[count])
     if(Object.keys(data).length === 6){
-        api.registry(data)
-            .then(res =>  {
-                if(res.ok) window.location.href = '../homePage.html'
-            })
+        send(data)
     }
 })
-slides.forEach((el) => el.addEventListener('click', () => selectSlide(el)))
+
+
+slides.forEach((el) => el.addEventListener('click', () => selectSlide(el, sliderCommand)))
 formCheckInputs.forEach((el) => el.addEventListener('click', () => enableVariant(el)))
 enableValidation('.form__container input', '.submit')
