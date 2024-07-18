@@ -28,15 +28,13 @@ async function greethings(){
     }, 2000)
 }
 
-containerEvents.addEventListener('scroll', (e) => {
+containerEvents.addEventListener('mouseup', (e) => {
+
+    console.log(e);
     const elementsWidth = Array.from(e.target.children).map(el => el)
     const scrollLeft = e.target.scrollLeft
 
-    elementsWidth.forEach((el) => {
-        if(scrollLeft >= el.offsetLeft && scrollLeft < el.offsetLeft + el.clientWidth){
-            containerEvents.scroll({left: el.offsetLeft + (el.clientWidth / 2), behavior: 'smooth'}) 
-        }
-    })
+    console.log(scrollLeft);
 
 })
 
