@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     padding-top: 40px;
     padding-bottom: 40px;
-    gap: 20px;
+    gap: 10px;
     justify-content: space-around;
     margin: auto;
     max-height: 900px;
@@ -136,7 +136,10 @@ body{
     gap: 6.5%;
     padding: 0 16px;
     min-height: 140px;
+    transition: 0.5s;
+
 }
+
 .slider__actions .slide__actions {
     min-width: 29%;
     padding: 11px 0;
@@ -149,6 +152,11 @@ body{
     background-color: #DA6713;
     color: white;
     border-radius: 30px;
+    transition: 0.5s;
+}
+
+.slider__actions:hover .slide__actions {
+    transform: translateX(-5px);
 }
 .slide__cri {
     width: 45px;
@@ -181,11 +189,11 @@ body{
 
 .slider__events {
     padding: 0 16px;
-    gap: 24px;
+    gap: 9%;
+    overflow: scroll;
     min-height: 170px;
-  
-    
 }
+
 .slide__event {
     padding-left: 58px;
     padding-top: 90px;
@@ -194,17 +202,24 @@ body{
     position: relative;
     border-radius: 55px;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.426);
     max-height: 225px;
+    transition: 0.5s;
+    background-color: rgb(0, 0, 0);
+    z-index: 3;
+}
+.slider__events:hover .slide__event{
+    transform: translateX(-5px);   
 }
 .slide__event img {
     position: absolute;
+    filter: opacity(0.7);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 2;
     width: 100%;
+   
 }
 .event__title {
     color: white;
@@ -212,12 +227,14 @@ body{
     bottom: 38px;
     left: 58px;
     font-size: 16px;
+    z-index: 3;
 }
 .event__desctioptions {
     position: absolute;
     bottom: 20px;
     left: 58px;
     font-size: 12px ;
+    z-index: 3;
 }
 .event__time {
     color: white;

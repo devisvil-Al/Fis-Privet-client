@@ -12,3 +12,13 @@ export function selectSlide(el, sliderCommand){
         behavior: 'smooth'
     })
 }
+
+
+export function wheelScroll (e, config){
+    if(e.wheelDelta > 0){
+        config.container.children.length > config.count ? config.count++ : config.count
+    }else {
+        0 < config.count ? config.count-- : config.count
+    }
+    config.container.scroll({left: config.container.clientWidth * config.count , behavior: 'smooth'})
+}

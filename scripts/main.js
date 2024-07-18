@@ -1,11 +1,18 @@
 import { api } from "./Api.js";
+import {wheelScroll} from "./Slider.js"
+
 
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
 const containerEvents = document.querySelector('.slider__events')
-const sliderConfig = {
-    prevCount : 0,
-    count: 0
+const containerActions = document.querySelector('.slider__actions')
+const configSliderEvents = {
+    count : 0,
+    container : containerActions
+}
+const configSliderActions = {
+    count : 0,
+    container : containerEvents
 }
 
 async function greethings(){
@@ -28,19 +35,15 @@ async function greethings(){
     }, 2000)
 }
 
-containerEvents.addEventListener('mouseup', (e) => {
 
+
+
+
+containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSliderEvents))
+containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
+
+containerActions.addEventListener('scroll', (e) =>  {
     console.log(e);
-    const elementsWidth = Array.from(e.target.children).map(el => el)
-    const scrollLeft = e.target.scrollLeft
-
-    console.log(scrollLeft);
-
 })
-
-
-
-
-
 
 greethings()
