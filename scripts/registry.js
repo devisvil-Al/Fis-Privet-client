@@ -1,5 +1,6 @@
 import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
+console.log(window.Telegram.WebApp.initDataUnsafe);
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
@@ -39,6 +40,7 @@ async function submitForm(e) {
 api.getContact()
 .then((res) => api.checkUser(res.from.id))
 .then((res) =>  {
+    console.log(res);
     if(res._id){
         window.location.href = '../index.html'
     }
