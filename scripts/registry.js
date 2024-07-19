@@ -1,6 +1,8 @@
 import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
-console.log(window.Telegram.WebApp.initDataUnsafe);
+Telegram.WebApp.onEvent('mainButtonClicked', (data) => {
+    alert(data);
+})
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
