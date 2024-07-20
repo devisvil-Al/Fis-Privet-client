@@ -49,9 +49,9 @@ function checkTelegrammId(){
             console.log(res);
             console.log(preloader);
             preloader.style = 'display: none'
-
+            registry.elements['firstName'].value = res.user.first_name
             quizUserName.textContent = res.user.first_name
-            registryTelegramId.textContent = res.user.username
+            registryTelegramId.textContent = '@' + res.user.username
         }) 
 }
         
