@@ -38,25 +38,25 @@ async function submitForm(e) {
     scrollMain(6000)
 }
                 
-api.getContact()
-.then((res) => api.checkUser())
-.then((res) =>  {
-    console.log(res);
-    if(res._id){
-        // window.location.href = '../index.html'
-    }
-    data.ref = res.ref
-    data.telegramId = res.from.id
-    data.avatar = res.photo
-    registryTelegramId.textContent = '@' + res.from.username
-    registry.elements[0].value = res.from.first_name 
-    quizUserName.textContent = res.from.first_name
-})
-.catch((err) => {
-    console.log(err)
-}).finally(() => {
-    preloader.remove()
-})
+// api.getContact()
+// .then((res) => api.checkUser())
+// .then((res) =>  {
+//     console.log(res);
+//     if(res._id){
+//         // window.location.href = '../index.html'
+//     }
+//     data.ref = res.ref
+//     data.telegramId = res.from.id
+//     data.avatar = res.photo
+//     registryTelegramId.textContent = '@' + res.from.username
+//     registry.elements[0].value = res.from.first_name 
+//     quizUserName.textContent = res.from.first_name
+// })
+// .catch((err) => {
+//     console.log(err)
+// }).finally(() => {
+//     preloader.remove()
+// })
 
                 
                 
