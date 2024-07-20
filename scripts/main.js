@@ -23,7 +23,7 @@ async function greethings(){
     const check = await api.checkUser({data: tg.initData || dataHash, user: tg.initDataUnsafe.user || user })
     if(!check.ok){
         const res = await api.auth(window.Telegram.WebApp.initDataUnsafe.user.id)
-        if(!res.ok){
+        if(!res.success){
             window.location.href = '../Registry.html'
         }
         const data = await res.json()
