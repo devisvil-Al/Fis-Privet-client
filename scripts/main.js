@@ -26,6 +26,7 @@ async function greethings(){
         if(!res.ok){
             window.location.href = '../Registry.html'
         }
+        const data = await res.json()
         modalGreetings.querySelector('.modal__name') .textContent = data.firstName
         modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
         modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
