@@ -29,9 +29,8 @@ class Api {
     }
 
     async auth(id){
-
-        const res = await fetch(this.url + 'user/auth/' + id)
-
+        console.log(id);
+        const res = await fetch(this.url + 'user/auth/?id=' + id)
         return await res
 
 
