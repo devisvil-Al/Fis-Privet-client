@@ -116,7 +116,7 @@ rightBtn.addEventListener('click', () => {
     leftBtn.disabled = false
     if(count < 1) count += 1
     activeBtn(quizIndicators, quizIndicators[count])
-    if(Object.keys(data).length === 5){
+    if(Object.keys(data).length === 7){
         send(data)
     }
 })
