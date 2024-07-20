@@ -1,6 +1,6 @@
 import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
-console.log(window.Telegram.WebApp.initData)
+console.log(window.Telegram.WebApp.user)
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
