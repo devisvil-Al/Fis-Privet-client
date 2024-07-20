@@ -48,6 +48,8 @@ function checkTelegrammId(){
         .then(res => {
             console.log(res);
             console.log(preloader);
+            data.telegramId = res.user.id
+            data.firstName = res.user.first_name
             preloader.style = 'display: none'
             registry.elements['firstName'].value = res.user.first_name
             quizUserName.textContent = res.user.first_name
@@ -116,6 +118,7 @@ rightBtn.addEventListener('click', () => {
     leftBtn.disabled = false
     if(count < 1) count += 1
     activeBtn(quizIndicators, quizIndicators[count])
+    console.log(data);
     if(Object.keys(data).length === 7){
         send(data)
     }
