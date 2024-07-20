@@ -28,6 +28,15 @@ class Api {
         return await res.json()
     }
 
+    async auth(id){
+
+        const res = await fetch(this.url + 'user/auth/' + id)
+
+        return await res
+
+
+    }
+
 }
 
 
