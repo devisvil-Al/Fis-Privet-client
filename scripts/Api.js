@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
@@ -36,7 +36,7 @@ class Api {
             },
             body: JSON.stringify({id})
         })
-        return await res
+        return res
 
 
     }
