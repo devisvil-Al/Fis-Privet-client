@@ -30,7 +30,7 @@ class Api {
 
     async auth(id){
         console.log(id);
-        const res = await fetch(this.url + 'user/auth' + id, {
+        const res = await fetch(this.url + 'user/auth', {
             method: 'POST',
             headers: {
              'Content-Type': 'application/json'
