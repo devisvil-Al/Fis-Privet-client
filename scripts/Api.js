@@ -25,7 +25,7 @@ class Api {
             },
             body: JSON.stringify(data)
         })
-        return await res
+        return await res.json()
     }
 
 }
