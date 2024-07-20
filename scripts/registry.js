@@ -119,7 +119,7 @@ rightBtn.addEventListener('click', () => {
     if(count < 1) count += 1
     activeBtn(quizIndicators, quizIndicators[count])
     console.log(data);
-    if(Object.keys(data).length === 7){
+    if(Object.keys(data).length === 5){
         send(data)
     }
 })
