@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
@@ -15,19 +15,17 @@ class Api {
         })
     }
 
-    getContact(){
-        return fetch(this.url + 'user/')
-            .then(res => res.json())
-    }
+  
 
-    checkUser(id){
-        return fetch(this.url + 'user', {
+    async checkUser(data){
+        const res = await fetch(this.url + 'user/check', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+             'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id})
-        }).then(res => res.json())
+            body: JSON.stringify({data})
+        })
+        return await res
     }
 
 }

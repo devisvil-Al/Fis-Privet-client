@@ -1,7 +1,7 @@
 import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
 
-console.log(window.Telegram.WebApp.initDataUnsafe)
+
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
@@ -38,27 +38,19 @@ async function submitForm(e) {
     scrollMain(6000)
 }
                 
-// api.getContact()
-// .then((res) => api.checkUser())
-// .then((res) =>  {
-//     console.log(res);
-//     if(res._id){
-//         // window.location.href = '../index.html'
-//     }
-//     data.ref = res.ref
-//     data.telegramId = res.from.id
-//     data.avatar = res.photo
-//     registryTelegramId.textContent = '@' + res.from.username
-//     registry.elements[0].value = res.from.first_name 
-//     quizUserName.textContent = res.from.first_name
-// })
-// .catch((err) => {
-//     console.log(err)
-// }).finally(() => {
-//     preloader.remove()
-// })
+const dataHash = 'query_id=AAFCPbI6AAAAAEI9sjpkKRH0&user=%7B%22id%22%3A984759618%2C%22first_name%22%3A%22%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22devisvil%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721492698&hash=c5c877983e0d790d0868f83006cf0f6c3305e0009b67de94266b5529ae711a9f'
 
-                
+function checkTelegrammId(){
+    const tg = window.Telegram.WebApp
+    api.checkUser({data: tg.initData || dataHash, user: tg.initDataUnsafe})
+        .then(res => {
+            preloader.classList.add('hidden__preloader')
+            quizUserName.textContent = res.user.first_name
+            registryTelegramId.textContent = res.user.username
+        }) 
+}
+        
+checkTelegrammId()
                 
 function enableValidation(selectorInput, selectorSubmit){
     const inputs = document.querySelectorAll(selectorInput)

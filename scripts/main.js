@@ -17,11 +17,9 @@ const configSliderActions = {
 
 async function greethings(){
     window.Telegram.WebApp.expand() 
-    const res = await api.getContact()
-    const data = await api.checkUser(res.from.id)
-    if(!data._id){
+   
         window.location.href = '../Registry.html'
-    }
+    
     modalGreetings.querySelector('.modal__name') .textContent = data.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
