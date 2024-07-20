@@ -39,7 +39,7 @@ async function submitForm(e) {
 }
                 
 api.getContact()
-.then((res) => api.checkUser(res.from.id))
+.then((res) => api.checkUser())
 .then((res) =>  {
     console.log(res);
     if(res._id){
