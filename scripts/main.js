@@ -1,6 +1,6 @@
 import { api } from "./Api.js";
 import {wheelScroll} from "./Slider.js"
-
+console.log(window.Telegram.WebApp.initDataUnsafe)
 
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
