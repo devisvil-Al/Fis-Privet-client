@@ -8,7 +8,8 @@ const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
 const preloader = document.querySelector('.preloader')
 const ref = window.location.href.split('?start=').pop()
-localStorage.setItem('referal', ref)
+
+
 const configSliderEvents = {
     count : 0,
     container : containerActions
@@ -27,16 +28,19 @@ async function greethings(){
     const check = await api.checkUser({data: tg.initData || dataHash, user: {...tg.initDataUnsafe.user, ref} || {...user, ref} })
     if(check.success){
         const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
-        console.log(data);
         if(!data.success){
             window.location.href = '../Registry.html'
+        } else {
+            setTimeout( () => {
+                modalGreetings.querySelector('.modal__name') .textContent = data.firstName
+                modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
+                modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
+                preloader.style.display = 'none'
+                main.classList.remove('hidden__main')
+                modalGreetings.classList.add('modal-visible')
+                
+            }, 1000)
         }
-        modalGreetings.querySelector('.modal__name') .textContent = data.firstName
-        modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
-        modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
-        preloader.style.display = 'none'
-        main.classList.remove('hidden__main')
-        modalGreetings.classList.add('modal-visible')
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
         }, 2000)

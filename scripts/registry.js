@@ -2,8 +2,6 @@ import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
 
 
-console.log(window.Telegram.WebApp.initDataUnsafe)
-
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
@@ -52,7 +50,6 @@ async function checkTelegrammId(){
             console.log(preloader);
             data.telegramId = res.user.id
             data.firstName = res.user.first_name
-            data.ref = localStorage.getItem('referal')
             preloader.style.display = 'none'
             registry.elements['firstName'].value = res.user.first_name
             quizUserName.textContent = res.user.first_name
@@ -122,7 +119,7 @@ rightBtn.addEventListener('click', () => {
     if(count < 1) count += 1
     activeBtn(quizIndicators, quizIndicators[count])
     console.log(data);
-    if(Object.keys(data).length === 6){
+    if(Object.keys(data).length === 5){
         send(data)
     }
 })
