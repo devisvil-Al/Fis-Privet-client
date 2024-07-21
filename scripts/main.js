@@ -6,6 +6,8 @@ const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
 const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
+const ref = window.location.pathname
+console.log(ref);
 const configSliderEvents = {
     count : 0,
     container : containerActions
@@ -22,14 +24,12 @@ async function greethings(){
     const user = {allows_write_to_pm :  true, first_name :  "Александр", id :  984759618, language_code :  "ru", last_name :  "", username :  "devisvil"}
     console.log({dataHash: tg.initData, user: tg.initDataUnsafe.user});
     const check = await api.checkUser({data: tg.initData || dataHash, user: tg.initDataUnsafe.user || user })
-
     if(check.success){
         const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
         console.log(data);
         if(!data.success){
             window.location.href = '../Registry.html'
         }
-   
         modalGreetings.querySelector('.modal__name') .textContent = data.firstName
         modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
         modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
