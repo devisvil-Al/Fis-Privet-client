@@ -6,8 +6,9 @@ const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
 const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
+const preloader = document.querySelector('.preloader')
 const ref = window.location.href.split('?start=').pop()
-localStorage.setItem('ref', ref)
+localStorage.setItem('referal', ref)
 const configSliderEvents = {
     count : 0,
     container : containerActions
@@ -33,11 +34,9 @@ async function greethings(){
         modalGreetings.querySelector('.modal__name') .textContent = data.firstName
         modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
         modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
-        
+        preloader.style.display = 'none'
         main.classList.remove('hidden__main')
-        setTimeout( () => { 
-            modalGreetings.classList.add('modal-visible')
-        }, 1000)
+        modalGreetings.classList.add('modal-visible')
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
         }, 2000)

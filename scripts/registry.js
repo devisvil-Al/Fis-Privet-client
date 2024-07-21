@@ -50,7 +50,7 @@ async function checkTelegrammId(){
             console.log(preloader);
             data.telegramId = res.user.id
             data.firstName = res.user.first_name
-            data.ref = localStorage.getItem('ref')
+            data.ref = localStorage.getItem('referal')
             preloader.style.display = 'none'
             registry.elements['firstName'].value = res.user.first_name
             quizUserName.textContent = res.user.first_name
