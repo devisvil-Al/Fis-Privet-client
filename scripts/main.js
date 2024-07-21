@@ -30,20 +30,22 @@ async function greethings(){
         const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
         if(!data.success){
             window.location.href = '../Registry.html'
+            modalGreetings.classList.remove('modal-visible') 
+            preloader.style.display = 'none'
         } else {
             setTimeout( () => {
-                modalGreetings.querySelector('.modal__name') .textContent = data.firstName
-                modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.club + '.svg'
+                modalGreetings.querySelector('.modal__name') .textContent = data.user.firstName
+                modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.user.club + '.svg'
                 modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
                 preloader.style.display = 'none'
                 main.classList.remove('hidden__main')
                 modalGreetings.classList.add('modal-visible')
                 
             }, 1000)
+            setTimeout( () => {
+                modalGreetings.classList.remove('modal-visible') 
+            }, 2000)
         }
-        setTimeout( () => {
-            modalGreetings.classList.remove('modal-visible') 
-        }, 2000)
         
     }
     
