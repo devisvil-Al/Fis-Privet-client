@@ -8,7 +8,7 @@ const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
 const preloader = document.querySelector('.preloader')
 const ref = window.location.href.split('?start=').pop()
-localStorage.setItem('ref', ref)
+localStorage.setItem('referal', ref)
 const configSliderEvents = {
     count : 0,
     container : containerActions
