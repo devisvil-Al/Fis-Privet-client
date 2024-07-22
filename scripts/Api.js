@@ -17,7 +17,7 @@ class Api {
 
   
 
-    async   checkUser(data){
+    async checkUser(data){
         const res = await fetch(this.url + 'user/check', {
             method: 'POST',
             headers: {

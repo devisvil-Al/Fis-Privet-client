@@ -7,7 +7,8 @@ const main = document.querySelector('.main')
 const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
 const preloader = document.querySelector('.preloader')
-const ref = window.location.href.split('?start=').pop()
+const cristall = document.querySelector('.point')
+const profileBtn = document.querySelector('.point__description')
 
 
 const configSliderEvents = {
@@ -19,13 +20,19 @@ const configSliderActions = {
     container : containerEvents
 }
 
+function init(user){
+    cristall.textContent = user.cristall
+    modalGreetings.querySelector('.modal__name') .textContent = user.firstName
+    modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
+    preloader.style.display = 'none'
+}
+
 async function greethings(){
     window.Telegram.WebApp.expand() 
     const tg = window.Telegram.WebApp
     const dataHash = 'query_id=AAFCPbI6AAAAAEI9sjpkKRH0&user=%7B%22id%22%3A984759618%2C%22first_name%22%3A%22%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22devisvil%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721492698&hash=c5c877983e0d790d0868f83006cf0f6c3305e0009b67de94266b5529ae711a9f'
     const user = {allows_write_to_pm :  true, first_name :  "Александр", id :  984759618, language_code :  "ru", last_name :  "", username :  "devisvil"}
-    console.log({dataHash: tg.initData, user: tg.initDataUnsafe.user});
-    const check = await api.checkUser({data: tg.initData || dataHash, user: {...tg.initDataUnsafe.user, ref} || {...user, ref} })
+    const check = await api.checkUser({data: tg.initData || dataHash, user: {...tg.initDataUnsafe.user} || {...user} })
     if(check.success){
         const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
         if(!data.success){
@@ -33,11 +40,9 @@ async function greethings(){
             modalGreetings.classList.remove('modal-visible') 
             preloader.style.display = 'none'
         } else {
-            setTimeout( () => {
-                modalGreetings.querySelector('.modal__name') .textContent = data.user.firstName
-                modalGreetings.querySelector('.modal__logo') .src = '../img/' + data.user.club + '.svg'
+            setTimeout(() => {
+                init(data.user)
                 modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
-                preloader.style.display = 'none'
                 main.classList.remove('hidden__main')
                 modalGreetings.classList.add('modal-visible')
                 
@@ -57,7 +62,7 @@ async function greethings(){
 
 containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSliderEvents))
 containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
-
+profileBtn.addEventListener('click', () => window.location.href = '../ProfileInfo.html')
 containerActions.addEventListener('scroll', (e) =>  {
     console.log(e);
 })
