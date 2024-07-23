@@ -23,22 +23,43 @@
             </div>
         </nav>
 
-        <section class="levels">
-            <div class="levels__info">
-                <h2 class="levels__title">Гранит</h2>
-                <div class="levels__progress">50/150 cr</div>
-
-                <div class="levels__other_container">
-                    <button class="levels__other_container__button">Информация</button>
-                    <button class="levels__other_container__button">Возможности</button>
-                    <button class="levels__other_container__button">|||||||</button>
+        <section class="section__container levels section-active">
+            <div class="levels__container">
+                <div class="levels__info">
+                    <h2 class="levels__title">Гранит</h2>
+                    <div class="levels__progress">50/150 cr</div>
+    
+                    <div class="levels__other_container">
+                        <button class="levels__other_container__button">Информация</button>
+                        <button class="levels__other_container__button">Возможности</button>
+                        <button class="levels__other_container__button">|||||||</button>
+                    </div>
                 </div>
+            </div>
+            <div class="description">
+                Гранит – это основа, прочный и надежный фундамент. Этот камень является символом Санкт-Петербурга, города, известного своими гранитными набережными и прочными архитектурными сооружениями. Данный уровень представляет собой начальную стадию знакомства с клубом, закладывая крепкую основу в ваши дальнейшие взаимоотношения. Гранит – это символ вашей стойкости и верности, как прочного фундамента, на котором строятся великие победы.
             </div>
         </section>
 
-        <section class="description">
-            Гранит – это основа, прочный и надежный фундамент. Этот камень является символом Санкт-Петербурга, города, известного своими гранитными набережными и прочными архитектурными сооружениями. Данный уровень представляет собой начальную стадию знакомства с клубом, закладывая крепкую основу в ваши дальнейшие взаимоотношения. Гранит – это символ вашей стойкости и верности, как прочного фундамента, на котором строятся великие победы.
+        <section class="section__container profile">
+            <div class="profile__avatar">
+                <img src="./img/avatar.png" alt="avatar">
+            </div>
+            <form class="profile__form">
+                <input type="text" name="firstName" placeholder="#Имя" class="form__input">
+                <input type="text" name="lastName" placeholder="#Фамилия" class="form__input">
+                <input type="text" name="country" placeholder="#Город" class="form__input">
+                <label >Дата рождения: </label>
+                <div class="profile__form__container">
+                    <input type="text" name="day" placeholder="#День" class="form__input">
+                    <input type="text" name="month" placeholder="#Месяц" class="form__input">
+                    <input type="text" name="year" placeholder="#Год" class="form__input">
+                </div>
+                <button class="submit__btn" disabled>Сохранить</button>
+            </form>
+
         </section>
+
 
     </div>
 

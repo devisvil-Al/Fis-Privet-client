@@ -21,6 +21,7 @@ const configSliderActions = {
 }
 
 function init(user){
+    console.log(user);
     cristall.textContent = user.cristall
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
