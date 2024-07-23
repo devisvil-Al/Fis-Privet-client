@@ -130,7 +130,7 @@
     height: 100%;
 }
 .form__input {
-    padding: 20px;
+    padding: 15px;
     width: 100%;
     border-radius: 19px;
     border: #DA6713 1px solid;
@@ -140,7 +140,7 @@
     gap: 10px;
 }
 .submit__btn {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 20px;
     background-color: #DA6713;
     color: white;
