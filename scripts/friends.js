@@ -13,8 +13,8 @@ async function init(user){
     const {friends} = await api.getFriends(user.friends)
     friends.forEach(renderFriends)
     addFriends.addEventListener('click', () => {
-        const messageText = "Join me on this awesome app! Click here: https://t.me/your_bot?start=YOUR_REFERRAL_ID";
-        const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(link)}`;
+        const messageText = `Join me on this awesome app! Click here: https://t.me/your_bot?start=${user.telegramId}`;
+        const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
         window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
     })
 }
