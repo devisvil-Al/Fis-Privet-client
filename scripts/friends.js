@@ -13,7 +13,7 @@ async function init(user){
     const {friends} = await api.getFriends(user.friends)
     friends.forEach(renderFriends)
     addFriends.addEventListener('click', () => {
-        window.Telegram.WebApp.openTelegramLink('/a')
+        window.Telegram.WebApp.switchInlineQuery()
     })
 }
 
