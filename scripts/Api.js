@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
@@ -37,8 +37,17 @@ class Api {
             body: JSON.stringify({id})
         })
         return await res.json()
+    }
 
-
+    async getFriends(ids){
+        const res = await fetch(this.url + 'user/getFriends', {
+            method: 'POST',
+            headers: {
+             'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ids})
+        })
+        return await res.json()
     }
 
 }

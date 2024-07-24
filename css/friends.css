@@ -1,0 +1,107 @@
+.wrapper {
+    padding: 20px;
+    background-color: #DA6713;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav__btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    background-image: url(../img/backBtn.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+
+.nav__btn-getCri{
+    background-color: white;
+    color: #DA6713;
+    padding: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.addFriend{
+    background-color: white;
+    color: #DA6713;
+    padding: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.friends__container {
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.friends__container::-webkit-scrollbar{
+    display: none;
+}
+.friend__block{
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    position: relative;
+    height: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.friend__avatar{
+    height: 50px;
+    border-radius: 20px;
+    background-color: #DA6713;
+    border: solid 1px #DA6713;
+    box-sizing: content-box;
+}
+.name {
+}
+.friend__info_container {
+    display: flex;
+}
+.block__info {
+    width: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    border-left:  1px solid #DA6713 ;
+    border-right:  1px solid #DA6713 ;
+    position: relative;
+    margin-right: -22px;
+    padding-right: 22px;
+    overflow: hidden;height: 50px;
+    background-color: white;
+}
+.cristal {
+    z-index: 1;
+}
+.level {
+    z-index: 2;
+}
+.raiting {
+    z-index: 3;
+}
