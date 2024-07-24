@@ -65,13 +65,30 @@
     overflow: hidden;
     align-items: center;
 }
+.cupe{
+    background-image: url(../img/Cupe.svg);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 33px;
+}
 
-.friend__avatar{
+.avatar__container{
     height: 50px;
-    border-radius: 20px;
-    background-color: #DA6713;
+    width: 50px;
+    background-image: url(../img/Cupe.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     border: solid 1px #DA6713;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: content-box;
+    
+}
+.friend__avatar{
+    width: 100%;
+    border-radius: 20px;
 }
 .name {
 }
@@ -79,7 +96,7 @@
     display: flex;
 }
 .block__info {
-    width: 72px;
+    width: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,13 +105,14 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
-    border-left:  1px solid #DA6713 ;
-    border-right:  1px solid #DA6713 ;
+    border:  2px solid #DA6713;
     position: relative;
     margin-right: -22px;
     padding-right: 22px;
     overflow: hidden;height: 50px;
     background-color: white;
+    border-radius: 20px;
+    height: 60px;
 }
 .cristal {
     z-index: 1;
@@ -103,5 +121,10 @@
     z-index: 2;
 }
 .raiting {
+    padding-top: 19px;
+    justify-content: start;
+    align-items: flex-start;
     z-index: 3;
+    color: white;
+    padding-left: 23px;
 }

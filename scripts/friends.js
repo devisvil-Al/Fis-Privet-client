@@ -13,7 +13,9 @@ async function init(user){
     const {friends} = await api.getFriends(user.friends)
     friends.forEach(renderFriends)
     addFriends.addEventListener('click', () => {
-        window.Telegram.WebApp.switchInlineQuery()
+        const messageText = "Join me on this awesome app! Click here: https://t.me/your_bot?start=YOUR_REFERRAL_ID";
+        const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(link)}`;
+        window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
     })
 }
 
@@ -38,17 +40,19 @@ async function init(user){
 })()
 
 
-function renderFriends (data){
+function renderFriends (data, index){
     console.log(data);
     const friendElement = document.createElement('div')
     friendElement.classList.add('friend__block')
     friendElement.innerHTML = `
-        <img class="friend__avatar" src="${data.avatar ? data.avatar : '' }" alt="">
+        <div class='avatar__container'>
+            <img class="friend__avatar" src="${data.avatar ? data.avatar : '' }" alt="">
+        </div>
         <p class="name">${data.firstName} <br> ${data.lastName}</p>
         <div class="friend__info_container">
             <div class="block__info cristal">кр <br> ${data.cristall}</div>
-            <div class="block__info level">ур <br> 1</div>
-            <div class="block__info raiting">1</div>
+            <div class="block__info level">ур <br>1</div>
+            <div class="block__info raiting ${index < 3 ? 'cupe' : 'normal'}">${index + 1}</div>
         </div>
             
     `
