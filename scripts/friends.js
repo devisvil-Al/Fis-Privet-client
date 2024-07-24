@@ -1,12 +1,9 @@
 import { api } from "./Api.js"
 
-
 const preloader = document.querySelector('.preloader')
 const backbtn = document.querySelector('.nav__btn')
 const friendsContainer = document.querySelector('.friends__container')
 const addFriends = document.querySelector('.addFriend')
-
-const link = 'https://t.me/PhiscooltBot/?start='
 
 async function init(user){
     preloader.style.display = 'none'
@@ -18,7 +15,6 @@ async function init(user){
         window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
     })
 }
-
 
 (async () => {
     const tg = window.Telegram.WebApp
@@ -53,8 +49,7 @@ function renderFriends (data, index){
             <div class="block__info cristal">кр <br> ${data.cristall}</div>
             <div class="block__info level">ур <br>1</div>
             <div class="block__info raiting ${index < 3 ? 'cupe' : 'normal'}">${index + 1}</div>
-        </div>
-            
+        </div>  
     `
     friendsContainer.append(friendElement)
 }
