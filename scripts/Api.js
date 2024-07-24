@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'http://localhost:3000/'
+    url = 'https://fisprivet.onrender.com/'
     
 
     registry(body){
