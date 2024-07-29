@@ -10,6 +10,7 @@ const preloader = document.querySelector('.preloader')
 const cristall = document.querySelector('.point')
 const profileBtn = document.querySelector('.point__description')
 const friendBtn = document.querySelector('.friends__btn')
+const btnOptions = document.querySelector('.point__container_options_btn')
 
 
 const configSliderEvents = {
@@ -65,6 +66,8 @@ async function greethings(){
 containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSliderEvents))
 containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
 profileBtn.addEventListener('click', () => window.location.href = '../ProfileInfo.html')
+btnOptions.addEventListener('click', () => window.location.href = '../Profile.html')
+
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
 
 

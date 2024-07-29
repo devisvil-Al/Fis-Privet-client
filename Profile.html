@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="./css/nullstyle.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+</head>
+<body>
+    
+    <section class="preloader modal-hidden">
+        <img src="./img/main.gif" alt="preloader">
+    </section>
+
+    <div class="wrapper">
+        <nav class="nav">
+            <button class="nav__btn nav__btn-back"></button>
+            <div class="nav__toggle">Настройки вашего аккаунта</div>
+        </nav>
+
+        <nav class="settings">
+            <div class="profile_btn setting">Персональная информация</div>
+            <div class="preferences_btn setting">Ваши предпочтения</div>
+            <div class="notification_btn setting">Настройки уведомлений</div>
+        </nav>
+
+        <div class="wrapper__options">
+            <button class="nav__btn nav__btn-options"></button>
+            <p class="wrapper__options__title">Персональная информация</p>
+        </div>
+
+        <section class="section__container profile">
+            <div class="profile__avatar">
+                <img src="./img/Cupe.svg" alt="avatar">
+            </div>
+            <form class="profile__form">
+                <input type="text" name="firstName" placeholder="#Имя" class="form__input" required>
+                <input type="text" name="lastName" placeholder="#Фамилия" class="form__input" required>
+                <input type="text" name="country" placeholder="#Город" class="form__input" required>
+                <label >Дата рождения: </label>
+                <div class="profile__form__container">
+                    <input type="number" name="day" placeholder="#День" class="form__input" required>
+                    <input type="number" name="month" placeholder="#Месяц" class="form__input" required>
+                    <input type="number" name="year" placeholder="#Год" class="form__input" required>
+                </div>
+                <button class="submit__btn" disabled>Сохранить</button>
+            </form>
+
+        </section>
+
+        <section class="section__container notification">
+            <p class="section__container__title">Настройте уведомления, которые Вам будет направлять наш бот</p>
+            <form class="notification__form">
+                <div class="notification__input_container">
+                    <label for="cristals">Предупреждения о кристалах</label>
+                    <div class="toggle">
+                        <input type="text" name="cristals" class="radio">
+                        <div class="toggle__round"></div>
+                    </div>
+                </div>
+                <div class="notification__input_container">
+                    <label for="events">Напоминания о событиях</label>
+                    <div class="toggle">
+                        <input type="text" name="events" class="radio">
+                        <div class="toggle__round"></div>
+                    </div>
+                </div>
+                <div class="notification__input_container">
+                    <label for="partners">Предложения от партнеров</label>
+                    <div class="toggle">
+                        <input type="text" name="partners" class="radio">
+                        <div class="toggle__round"></div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script type="module" src="./scripts/Profile.js"></script>
+</body>
+</html>

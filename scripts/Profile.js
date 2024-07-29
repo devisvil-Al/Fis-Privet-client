@@ -1,49 +1,82 @@
-import {api} from "./Api.js"
+import { check } from "./Components/init.js"
+import { api } from "./Api.js"
+import { enableValidation } from "./Components/validation.js"
 
+const backbtn = document.querySelector('.nav__btn-back')
+const allSections = document.querySelectorAll('.section__container')
+const backbtnOptions = document.querySelector('.nav__btn-options')
+const profileSection = document.querySelector('.profile')
+const notificationSection = document.querySelector('.notification')
+const titleOptions = document.querySelector('.wrapper__options__title')
 const preloader = document.querySelector('.preloader')
-const backbtn = document.querySelector('.nav__btn')
-const navToggleBtns = document.querySelectorAll('.nav__toggle')
-const sections = document.querySelectorAll('.section__container')
-const formProfile = document.querySelector('.profile__form')
-const avatar = document.querySelector('.profile__avatar img')
+const profileForm = document.querySelector('.profile__form')
+const profileBtn = document.querySelector('.profile_btn')
+const notificationBtn = document.querySelector('.notification_btn')
+const toggles = document.querySelectorAll('.toggle')
+const AppData = {}
 
-function init (user){
-    preloader.style.display = 'none'
-    avatar.src = user.avatar
-    const {firstName, lastName, country, day, month, year} = formProfile.elements
-    firstName.value = user.firstName
-    lastName.value = user.lastName
-    country.value = user.country || ''
-    day.value = user.birthday?.day || ''
-    month.value = user.birthday?.month || ''
-    year.value = user.birthday?.year || ''
+function init(user){
+    AppData.user = user
+  preloader.style.display = 'none'
+  const {firstName, lastName, country, day, month, year} = profileForm.elements
+  firstName.value = user.firstName
+  lastName.value = user.lastName
+  country.value = user.country || ''
+  day.value = user.birthday?.day || ''
+  month.value = user.birthday?.month || ''
+  year.value = user.birthday?.year || ''
 }
 
-(async () => {
-    const tg = window.Telegram.WebApp
-    const dataHash = 'query_id=AAFCPbI6AAAAAEI9sjpkKRH0&user=%7B%22id%22%3A984759618%2C%22first_name%22%3A%22%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22devisvil%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721492698&hash=c5c877983e0d790d0868f83006cf0f6c3305e0009b67de94266b5529ae711a9f'
-    const user = {allows_write_to_pm :  true, first_name :  "Александр", id :  984759618, language_code :  "ru", last_name :  "", username :  "devisvil"}
-    const check = await api.checkUser({data: tg.initData || dataHash, user: {...tg.initDataUnsafe.user} || {...user} })
-    if(check.success){
-        const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
-        if(!data.success){
-            window.location.href = '../Registry.html'
-            modalGreetings.classList.remove('modal-visible') 
-            preloader.style.display = 'none'
-        } else {
-            setTimeout(() => {
-                init(data.user)
-               
-            }, 1000)
-        }
-    }
-})()
-
-backbtn.addEventListener('click', () => {
-    window.location.href = '../index.html'
+profileBtn.addEventListener('click', () => {
+    titleOptions.textContent = 'Персональная информация'
+    allSections.forEach(section => section.classList.remove('section-active'))
+    profileSection.classList.add('section-active')
+    window.scroll({
+        top: window.outerHeight,
+        behavior: 'smooth'
+    })
 })
 
-navToggleBtns.forEach(btn => btn.addEventListener('click', () => {
-    navToggleBtns.forEach(btn => btn.classList.toggle('nav__toggle-active'))
-    sections.forEach(section => section.classList.toggle('section-active'))
-}))
+notificationBtn.addEventListener('click', () => {
+    titleOptions.textContent = 'Настройки уведомлений'
+    allSections.forEach(section => section.classList.remove('section-active'))
+    notificationSection.classList.add('section-active')
+    window.scroll({
+        top: window.outerHeight,
+        behavior: 'smooth'
+    })
+})
+
+profileForm.addEventListener('submit', async e => {
+  e.preventDefault()
+  const {firstName, lastName, country, day, month, year} = profileForm.elements
+  const data = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    country: country.value,
+    birthday: {
+      day: day.value,
+      month: month.value,
+      year: year.value
+    }
+  }
+    const res = await api.updateProfile(data, AppData.user.telegramId)
+    console.log(res);
+    if(res.success){
+        window.location.reload()
+    }
+})
+
+backbtnOptions.addEventListener('click', () =>  window.scroll({
+    top: 0,
+    behavior: 'smooth'
+}) )
+backbtn.addEventListener('click', () =>  window.location.href = '../index.html')
+toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('toggle-active')
+    })
+})
+
+check(init, api)
+enableValidation('.profile__form .form__input', '.profile__form .submit__btn')

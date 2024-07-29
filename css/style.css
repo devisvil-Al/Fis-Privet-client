@@ -59,6 +59,7 @@
 }
 
 .point__container {
+    position: relative;
     height: 25vh;
     border-radius: 30px;
     background-color: #D9D9D9;
@@ -261,4 +262,17 @@
 .modal-visible{
     visibility: visible;
     opacity: 1;
+}
+
+.point__container_options_btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #DA6713;
+    background-image: url(../img/options.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
 }

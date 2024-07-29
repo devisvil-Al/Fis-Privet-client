@@ -26,12 +26,20 @@
 }
 
 .nav__btn-getCri{
-    background-color: white;
-    color: #DA6713;
-    padding: 16px;
+    background-color: #ea8c48;
+    color: white;
+    padding: 10px 16px;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
+    height: 50px;
+    width: 148px;
+    font-weight: bold;
+}
+.nav__btn-getCri-active{
+    background-color: white;
+    color: #DA6713;
+    font-size: 14px;
 }
 
 
@@ -78,7 +86,7 @@
     background-image: url(../img/Cupe.svg);
     background-repeat: no-repeat;
     background-position: center;
-    border: solid 1px #DA6713;
+    border-right: solid 1px #DA6713;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -113,6 +121,7 @@
     background-color: white;
     border-radius: 20px;
     height: 60px;
+    text-align: center;
 }
 .cristal {
     z-index: 1;
@@ -127,4 +136,28 @@
     z-index: 3;
     color: white;
     padding-left: 23px;
+}
+
+.noFriends__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+    color: white;
+    padding: 57px;
+}
+.noFriends__container img {
+    width: 60px;
+}
+.noFriends__container p {
+    font-size: 16px;
+    line-height: 21.86px;
+    
+    text-align: center;
+}
+.noFriends__userName{
+    font-size: 22px;
+    font-weight: bold;
 }
