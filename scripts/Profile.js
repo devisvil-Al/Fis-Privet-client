@@ -23,11 +23,12 @@ const preferencesVariables = document.querySelectorAll('.preferences__variable')
 const AppData = {}
 
 function init(user){
+    window.scrollTo(0, 0)
     AppData.user = user
     preloader.style.display = 'none'
     const {firstName, lastName, country, day, month, year} = profileForm.elements
-    // const {cristals} = notificationForm.elements
-    // cristals.checked = user.hubCristalls.notification
+    const {cristals} = notificationForm.elements
+    cristals.checked = user.hubCristall.notification
     const variableTeam = [...preferencesForm.elements.team].find(item => item.value === user.team)
     variableTeam.checked = true
     firstName.value = user.firstName
