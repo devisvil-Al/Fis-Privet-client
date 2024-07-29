@@ -48,7 +48,29 @@
                 </div>
                 <button class="submit__btn" disabled>Сохранить</button>
             </form>
+        </section>
 
+        <section class="section__container preferences">
+            <p class="section__container__title">Настройте уведомления, которые Вам будет направлять наш бот</p>
+            <form class="preferences__form">
+                <div class="preferences__variable">
+                    <input value="Женская пляжная команда" name="team" class="form__input" type="radio">
+                    <label for="team">Женская пляжная команда</label>
+                </div>
+                <div class="preferences__variable">
+                    <input  value="Мужская пляжная команда" name="team" class="form__input" type="radio">
+                    <label for="team">Мужская пляжная команда</label>
+                </div>
+                <div class="preferences__variable">
+                    <input  value="Женская мини-футбольная команда" name="team" class="form__input" type="radio">
+                    <label for="team">Женская мини-футбольная команда</label>
+                </div>
+                <div class="preferences__variable">
+                    <input  value="Мужская мини-футбольная команда" name="team" class="form__input" type="radio">
+                    <label for="team">Мужская мини-футбольная команда</label>
+                </div>
+                <button class="submit__btn">Сохранить</button>
+            </form>
         </section>
 
         <section class="section__container notification">
@@ -56,25 +78,26 @@
             <form class="notification__form">
                 <div class="notification__input_container">
                     <label for="cristals">Предупреждения о кристалах</label>
+                    <input type="radio" name="cristals" class="form__input">
                     <div class="toggle">
-                        <input type="text" name="cristals" class="radio">
                         <div class="toggle__round"></div>
                     </div>
                 </div>
                 <div class="notification__input_container">
                     <label for="events">Напоминания о событиях</label>
+                    <input type="radio" name="events" class="form__input">
                     <div class="toggle">
-                        <input type="text" name="events" class="radio">
                         <div class="toggle__round"></div>
                     </div>
                 </div>
                 <div class="notification__input_container">
                     <label for="partners">Предложения от партнеров</label>
+                    <input type="radio" name="partners" class="form__input">
                     <div class="toggle">
-                        <input type="text" name="partners" class="radio">
                         <div class="toggle__round"></div>
                     </div>
                 </div>
+                <button class="submit__btn">Сохранить</button>
             </form>
         </section>
     </div>

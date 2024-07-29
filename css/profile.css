@@ -145,6 +145,10 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.notification__form .form__input{
+    display: none;
+}
+
 
 .toggle {
     width: 60px;
@@ -175,11 +179,11 @@ body{
     transition: 1s;
 }
 
-.toggle-active{
+.notification__form .form__input:checked + .toggle {
     background-color: #DA6713;
 }
 
-.toggle-active .toggle__round{
+.notification__form .form__input:checked + .toggle .toggle__round {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -190,7 +194,35 @@ body{
     right: 10px;
     background-color: #ffffff;
     border: solid 1px #DA6713;
+}
 
+.preferences{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+    color: #DA6713;
+}
+
+.preferences__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.preferences__variable label{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: solid 1px #DA6713;
+    border-radius: 20px;
+}
+.preferences__form .form__input {
+    display: none;
+}
+
+.form__input:checked + label {
+    background-color: #DA6713;
+    color: white;
 }
 
 
