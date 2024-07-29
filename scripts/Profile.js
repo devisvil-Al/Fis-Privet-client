@@ -6,6 +6,7 @@ import { enableValidation } from "./Components/validation.js"
 
 const backbtn = document.querySelector('.nav__btn-back')
 const preloader = document.querySelector('.preloader')
+const profileAvatar = document.querySelector('.profile__avatar img')
 const allSections = document.querySelectorAll('.section__container')
 const backbtnOptions = document.querySelector('.nav__btn-options')
 const profileSection = document.querySelector('.profile')
@@ -31,6 +32,7 @@ function init(user){
     cristals.checked = user.hubCristall.notification
     const variableTeam = [...preferencesForm.elements.team].find(item => item.value === user.team)
     variableTeam.checked = true
+    profileAvatar.src = user.avatar || './img/Cupe.svg'
     firstName.value = user.firstName
     lastName.value = user.lastName
     country.value = user.country || ''
