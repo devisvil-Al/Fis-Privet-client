@@ -32,7 +32,7 @@ function init(user){
     cristals.checked = user.hubCristall.notification
     const variableTeam = [...preferencesForm.elements.team].find(item => item.value === user.team)
     variableTeam.checked = true
-    profileAvatar.src = user.avatar || './img/Cupe.svg'
+    profileAvatar.src = user.avatar || './img/noFriends.svg'
     firstName.value = user.firstName
     lastName.value = user.lastName
     country.value = user.country || ''
