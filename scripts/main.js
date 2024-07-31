@@ -11,7 +11,7 @@ const cristall = document.querySelector('.point')
 const profileBtn = document.querySelector('.point__description')
 const friendBtn = document.querySelector('.friends__btn')
 const btnOptions = document.querySelector('.point__container_options_btn')
-
+console.log(window.Telegram.WebApp.message);
 
 const configSliderEvents = {
     count : 0,
