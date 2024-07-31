@@ -10,7 +10,6 @@ const userName = document.querySelector('.noFriends__userName')
 
 async function init(user){
     preloader.style.display = 'none'
-  
     if(user.hubCristall.cristall){
         btnAddCristall.innerHTML = `Cобрать <br> ${user.hubCristall.cristall} кр`
         btnAddCristall.classList.add('nav__btn-getCri-active')
@@ -22,6 +21,7 @@ async function init(user){
             }
         })
     }
+
     const {friends} = await api.getFriends(user.friends)
     if(friends.length !== 0){
         friendsContainer.innerHTML = ''
@@ -31,8 +31,6 @@ async function init(user){
     } else {
         userName.textContent = user.firstName
     }
-
-
 
     addFriends.addEventListener('click', () => {
         const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;

@@ -45,7 +45,14 @@
     color: #DA6713;
 }
 
-
+.section__container {
+    display: none;
+    transition: 0.6s;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
 
 .levels {
 

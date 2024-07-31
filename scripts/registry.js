@@ -1,8 +1,6 @@
 import { api } from "./Api.js"
 import { selectSlide, scrollCommand } from "./Slider.js"
 
-
-
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
 const registry = document.querySelector('.form')
@@ -17,7 +15,6 @@ const preloader = document.querySelector('.preloader')
 const quizUserName = document.querySelector('.quiz__user_name')
 const registryTelegramId = document.querySelector('.hello__telegram_id')
 let count = 0
-
 const data = {}
 
 function validation(input, submit, inputs){
@@ -37,8 +34,6 @@ async function submitForm(e) {
     data.lastName = e.target.elements.lastName.value
     scrollMain(6000)
 }
-                
-
 
 async function checkTelegrammId(){
     const tg = window.Telegram.WebApp

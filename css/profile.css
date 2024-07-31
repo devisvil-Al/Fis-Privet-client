@@ -16,6 +16,7 @@ body{
     gap: 20px;
     height: 100vh;
     background-color: #DA6713;
+    border: solid 1px #DA6713;
 
 }
 .profile_btn{
@@ -27,7 +28,7 @@ body{
     padding-left: 66px;
     padding-right: 50%;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 22px;
     height: 50px;
     color: #DA6713;
     font-size: 16px;
@@ -86,13 +87,18 @@ body{
 .profile__avatar {
     width: 100px;
     min-height: 100px;
-    border-radius: 50%;
+    border-radius: 35%;
     background-color: white;
     margin: auto;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../img/Avatar.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    border: solid 3px #DA6713;
 }
 .profile__avatar img {
     width: 100%;
@@ -172,7 +178,7 @@ body{
     background-color: white;
     transition: 0.5s;
     position: absolute;
-    left: 10px;
+    left: 5px;
     right: auto;
     background-color: #DA6713;
     border: solid 1px #DA6713;
@@ -191,7 +197,7 @@ body{
     transition: 0.5s;
     position: absolute;
     left: auto;
-    right: 10px;
+    right: 5px;
     background-color: #ffffff;
     border: solid 1px #DA6713;
 }
