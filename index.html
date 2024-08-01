@@ -22,8 +22,10 @@
     <main class="main hidden__main">
 
         <section class="point__container">
-            <div class="point__container_options_btn"></div>
-            <h2 class="point__title"> <span class="point">00</span>cr</h2>
+            <div class="point-flex">
+                <h2 class="point__title"> <span class="point">00</span>cr</h2>
+                <div class="point__container_options_btn"></div>
+            </div>
             <div class="point__info">
                 <p class="point__level">1 ур. ГРАНИТ</p>
                 <button class="point__description">Подробнее</button>
@@ -35,75 +37,33 @@
             <button class="social__container_btn friends__btn">Друзья</button>
         </section>
 
-        <section class="slider slider__actions">
-            <div class="slide__actions">
-                <div class="slide__cri">20cr</div>
-                <p class="slide__title">Подписаться на канал</p>
-                <hr>
-                <button class="slide__btn">собрать</button>
-            </div>
-            <div class="slide__actions">
-                <div class="slide__cri">45cr</div>
-                <p class="slide__title">Пригласить друга</p>
-                <hr>
-                <button class="slide__btn">выполнить</button>
-            </div>
-            <div class="slide__actions">
-                <div class="slide__cri">30cr</div>
-                <p class="slide__title">Накопить 300 cr</p>
-                <hr>
-                <button class="slide__btn">выполнить</button>
-            </div>
-            <div class="slide__actions">
-                <div class="slide__cri">60cr</div>
-                <p class="slide__title">Посетить матч</p>
-                <hr>
-                <button class="slide__btn">выполнить</button>
-            </div>
-            <div class="slide__actions">
-                <div class="slide__cri">60cr</div>
-                <p class="slide__title">Посетить матч</p>
-                <hr>
-                <button class="slide__btn">выполнить</button>
-            </div>
-            <div class="slide__actions">
-                <div class="slide__cri">60cr</div>
-                <p class="slide__title">Посетить матч</p>
-                <hr>
-                <button class="slide__btn">выполнить</button>
-            </div>
-        </section>
+        <section class="slider slider__actions"></section>
 
         <section class="slider slider__events">
-            <div class="slide__event">
-                <img src="./img/kristall1.svg" alt="">
-                <h3 class="event__title">ПФК Кристалл - Спартак</h3>
-                <div class="event__desctioptions">
-                    <span class="event__time">18:00</span>
-                    <span class="event__date">7 июля</span>
-                    <span class="event__address">Гражданский пр., 100</span>
-                </div>
-            </div>
-            <div class="slide__event">
-                <img src="./img/kristall2.svg" alt="">
-                <h3 class="event__title">ПФК Кристалл - Спартак</h3>
-                <div class="event__desctioptions">
-                    <span class="event__time">19:30</span>
-                    <span class="event__date">8 сент</span>
-                    <span class="event__address">Гражданский пр., 100</span>
-                </div>
-            </div>
-            <div class="slide__event">
-                <img src="./img/kristall2.svg" alt="">
-                <h3 class="event__title">ПФК Кристалл - Спартак</h3>
-                <div class="event__desctioptions">
-                    <span class="event__time">19:30</span>
-                    <span class="event__date">8 сент</span>
-                    <span class="event__address">Гражданский пр., 100</span>
-                </div>
-            </div>
+           
         </section>
     </main>
+
+
+    <template id="action">
+        <div class="slide__actions">
+            <div class="slide__cri"></div>
+            <p class="slide__title"></p>
+            <button class="slide__btn"></button>
+        </div>
+    </template>
+
+    <template id="event">
+        <div class="slide__event">
+            <img src="" alt="">
+            <h3 class="event__title"></h3>
+            <div class="event__desctioptions">
+                <span class="event__time"></span>
+                <span class="event__date"></span>
+                <span class="event__address"></span>
+            </div>
+        </div>
+    </template>
 
     <script type="module" src="./scripts/main.js"></script>
 </body>

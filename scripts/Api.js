@@ -62,6 +62,12 @@ class Api {
             body: JSON.stringify(data)
         }).then(res => res.json())
     }
+
+
+    getAppData (){
+        return fetch(this.url + 'app/')
+            .then(res => res.json())
+    }
 }
 
 

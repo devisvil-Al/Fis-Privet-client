@@ -1,6 +1,6 @@
 import { api } from "./Api.js";
 import {wheelScroll} from "./Slider.js"
-
+import { check } from "./Components/init.js";
 
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
@@ -11,7 +11,8 @@ const cristall = document.querySelector('.point')
 const profileBtn = document.querySelector('.point__description')
 const friendBtn = document.querySelector('.friends__btn')
 const btnOptions = document.querySelector('.point__container_options_btn')
-console.log(window.Telegram.WebApp.message);
+const templateAction = document.querySelector('#action').content
+const templateEvent = document.querySelector('#event').content
 
 const configSliderEvents = {
     count : 0,
@@ -23,40 +24,52 @@ const configSliderActions = {
 }
 
 function init(user){
-    console.log(user);
     cristall.textContent = user.cristall
+    modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
+    main.classList.remove('hidden__main')
+    modalGreetings.classList.add('modal-visible')
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
     preloader.style.display = 'none'
+    setTimeout( () => {
+        modalGreetings.classList.remove('modal-visible') 
+    }, 2000)
 }
 
-async function greethings(){
-    window.Telegram.WebApp.expand() 
-    const tg = window.Telegram.WebApp
-    const dataHash = 'query_id=AAFCPbI6AAAAAEI9sjpkKRH0&user=%7B%22id%22%3A984759618%2C%22first_name%22%3A%22%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22devisvil%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721492698&hash=c5c877983e0d790d0868f83006cf0f6c3305e0009b67de94266b5529ae711a9f'
-    const user = {allows_write_to_pm :  true, first_name :  "Александр", id :  984759618, language_code :  "ru", last_name :  "", username :  "devisvil"}
-    const check = await api.checkUser({data: tg.initData || dataHash, user: {...tg.initDataUnsafe.user} || {...user} })
-    if(check.success){
-        const data = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
-        if(!data.success){
-            window.location.href = '../Registry.html'
-            modalGreetings.classList.remove('modal-visible') 
-            preloader.style.display = 'none'
-        } else {
-            setTimeout(() => {
-                init(data.user)
-                modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
-                main.classList.remove('hidden__main')
-                modalGreetings.classList.add('modal-visible')
-                
-            }, 1000)
-            setTimeout( () => {
-                modalGreetings.classList.remove('modal-visible') 
-            }, 2000)
+api.getAppData()
+    .then(res => {
+        if(res.success){
+            check(init, api)
+            const {actions, sportEvents} = res
+            console.log(actions);
+            actions.forEach(renderAction)
+            sportEvents.forEach(renderSportEvents)
         }
-        
+    })
+
+function renderAction (action){
+    const clone = templateAction.cloneNode(true)
+    clone.querySelector('.slide__cri').textContent = action.price
+    clone.querySelector('.slide__title').textContent = action.name
+    const btn = clone.querySelector('.slide__btn')
+    if(action.state === 'create'){
+        btn.textContent = 'выполнить' 
+    } else {
+        btn.classList.add('slide__btn-active')
+        btn.textContent = 'собрать'
     }
-    
+    configSliderEvents.container.append(clone)
+}
+
+function renderSportEvents (event, index){
+    const clone = templateEvent.cloneNode(true)
+    clone.querySelector('img').src = `../img/kristall${index + 1}.svg`
+    clone.querySelector('.event__title').textContent = event.name
+    clone.querySelector('.event__time').textContent = event.time
+    clone.querySelector('.event__date').textContent = event.date
+    clone.querySelector('.event__address').textContent = event.address  
+    configSliderActions.container.append(clone)
+
 }
 
 
@@ -69,6 +82,3 @@ profileBtn.addEventListener('click', () => window.location.href = '../ProfileInf
 btnOptions.addEventListener('click', () => window.location.href = '../Profile.html')
 
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
-
-
-greethings()
