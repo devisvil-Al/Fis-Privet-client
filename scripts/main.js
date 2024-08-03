@@ -62,16 +62,19 @@ async function renderAction (action, id){
             const res = await api.setEventState(id, action.name)
             if(res.success){
                 if(res.action.key === 'invite'){
-                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
+                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
                     const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
                     window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
                 } else if (res.action.key === 'subscribe') {
                     window.Telegram.WebApp.openTelegramLink('https://t.me/+mzwM8nGyOnA0MmIy');
                 }
-                btn.classList.add('slide__btn-active')
-                btn.textContent = 'собрать'
-                btn.removeEventListener('click', setStateEvent)
-                btn.addEventListener('click', checkSubscribe)
+
+                setTimeout(() => {
+                    btn.classList.add('slide__btn-active')
+                    btn.textContent = 'собрать'
+                    btn.removeEventListener('click', setStateEvent)
+                    btn.addEventListener('click', checkSubscribe)
+                }, 1000)
             }
         }
     } else if (action.state === 'start') {
