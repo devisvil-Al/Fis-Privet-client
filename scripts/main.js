@@ -23,7 +23,17 @@ const configSliderActions = {
     container : containerEvents
 }
 
+
+
 function init(user){
+        api.getAppData(user.telegramId)
+        .then(res => {
+            if(res.success){
+                const {actions, sportEvents} = res
+                actions.forEach((action) => renderAction(action, user.telegramId))
+                sportEvents.forEach(renderSportEvents)
+            }
+        })
     cristall.textContent = user.cristall
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     main.classList.remove('hidden__main')
@@ -36,27 +46,54 @@ function init(user){
     }, 2000)
 }
 
-api.getAppData()
-    .then(res => {
-        if(res.success){
-            check(init, api)
-            const {actions, sportEvents} = res
-            console.log(actions);
-            actions.forEach(renderAction)
-            sportEvents.forEach(renderSportEvents)
-        }
-    })
+check(init, api)
+     
 
-function renderAction (action){
-    const clone = templateAction.cloneNode(true)
-    clone.querySelector('.slide__cri').textContent = action.price
+async function renderAction (action, id){
+    const clone = templateAction.querySelector('.slide__actions').cloneNode(true)
+    const price = clone.querySelector('.slide__cri')
+    price.textContent = action.price
     clone.querySelector('.slide__title').textContent = action.name
     const btn = clone.querySelector('.slide__btn')
     if(action.state === 'create'){
         btn.textContent = 'выполнить' 
-    } else {
+        btn.addEventListener('click', setStateEvent)
+        async function setStateEvent(){
+            const res = await api.setEventState(id, action.name)
+            if(res.success){
+                if(res.action.key === 'invite'){
+                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
+                    const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
+                    window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
+                } else if (res.action.key === 'subscribe') {
+                    window.Telegram.WebApp.openTelegramLink('https://t.me/+mzwM8nGyOnA0MmIy');
+                }
+                btn.classList.add('slide__btn-active')
+                btn.textContent = 'собрать'
+                btn.removeEventListener('click', setStateEvent)
+                btn.addEventListener('click', checkSubscribe)
+            }
+        }
+    } else if (action.state === 'start') {
         btn.classList.add('slide__btn-active')
         btn.textContent = 'собрать'
+        btn.addEventListener('click', checkSubscribe)
+    } else {
+        btn.classList.add('slide__btn-closed')
+        btn.textContent = 'завершено'
+        price.textContent = ''
+        price.classList.add('slide__cri-closed')
+    }
+    async function checkSubscribe(){
+        const res = await api.checkEventSubscribe(id, action.name)
+        if(res.success){
+            btn.classList.remove('slide__btn-active')
+            btn.classList.add('slide__btn-closed')
+            btn.textContent = 'завершено'
+            price.textContent = ''
+            price.classList.add('slide__cri-closed')
+            configSliderEvents.container.append(clone)
+        }
     }
     configSliderEvents.container.append(clone)
 }
@@ -69,7 +106,6 @@ function renderSportEvents (event, index){
     clone.querySelector('.event__date').textContent = event.date
     clone.querySelector('.event__address').textContent = event.address  
     configSliderActions.container.append(clone)
-
 }
 
 

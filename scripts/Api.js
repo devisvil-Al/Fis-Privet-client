@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
@@ -64,9 +64,32 @@ class Api {
     }
 
 
-    getAppData (){
-        return fetch(this.url + 'app/')
+    getAppData (id){
+        return fetch(this.url + 'app/events/' + id)
             .then(res => res.json())
+    }
+
+
+    async setEventState(id, actionName){
+        const res = await fetch(this.url + 'app/event-state/?id=' + id + '?actionName=' + actionName, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id, actionName})
+        })
+        return await res.json()
+    }
+
+    async checkEventSubscribe(id, actionName){
+        const res = await fetch(this.url + 'app/event-subscribe', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id, actionName})
+        })
+        return await res.json()
     }
 }
 
