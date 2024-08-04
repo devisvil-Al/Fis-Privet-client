@@ -18,12 +18,12 @@ async function init(user){
             if(res.success){
                 btnAddCristall.innerHTML = `пригласи друзей и получай 10%`
                 btnAddCristall.classList.remove('nav__btn-getCri-active')
-                eventFriends()
+                eventFriends(user)
             }
         })
     }
 
-    eventFriends()
+    eventFriends(user)
     addFriends.addEventListener('click', () => {
         const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
         const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
@@ -31,7 +31,7 @@ async function init(user){
     })
 }
 
-async function eventFriends (){
+async function eventFriends (user){
     const {friends} = await api.getFriends(user.friends)
     if(friends.length !== 0){
         friendsContainer.innerHTML = ''
