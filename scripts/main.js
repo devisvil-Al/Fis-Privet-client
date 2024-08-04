@@ -11,6 +11,8 @@ const cristall = document.querySelector('.point')
 const profileBtn = document.querySelector('.point__description')
 const friendBtn = document.querySelector('.friends__btn')
 const btnOptions = document.querySelector('.point__container_options_btn')
+const modalEvent = document.querySelector('.modal-event')
+const backModalEvent = modalEvent.querySelector('.nav__btn-back')
 const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 
@@ -102,13 +104,24 @@ async function renderAction (action, id){
 }
 
 function renderSportEvents (event, index){
-    const clone = templateEvent.cloneNode(true)
+    const clone = templateEvent.querySelector('.slide__event').cloneNode(true)
     clone.querySelector('img').src = `../img/kristall${index + 1}.svg`
     clone.querySelector('.event__title').textContent = event.name
     clone.querySelector('.event__time').textContent = event.time
     clone.querySelector('.event__date').textContent = event.date
     clone.querySelector('.event__address').textContent = event.address  
     configSliderActions.container.append(clone)
+    console.log(clone);
+    
+    clone.addEventListener('click', () => {
+        modalEvent.classList.add('modal-visible')
+        modalEvent.querySelector('img').src = `../img/kristall${index + 1}.svg`
+        modalEvent.querySelector('.nav__toggle_command').textContent = event.name
+        modalEvent.querySelector('.nav__toggle_address').textContent = event.address 
+        modalEvent.querySelector('.nav__toggle_date').textContent = event.date
+        modalEvent.querySelector('.nav__toggle_time').textContent = event.time 
+        modalEvent.querySelector('.modal-event_description').textContent = event.description
+    })
 }
 
 
@@ -119,5 +132,8 @@ containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSli
 containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
 profileBtn.addEventListener('click', () => window.location.href = '../ProfileInfo.html')
 btnOptions.addEventListener('click', () => window.location.href = '../Profile.html')
-
+backModalEvent.addEventListener('click', () => {
+    modalEvent.classList.remove('modal-visible')
+    modalEvent.querySelector('img').src = ``
+})
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
