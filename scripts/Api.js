@@ -2,7 +2,7 @@
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'https://fisprivet.onrender.com/'
+    url = 'http://localhost:3000/'
     
 
     registry(body){
@@ -55,6 +55,26 @@ class Api {
 
     updateProfile(data, id){
         return fetch(this.url + 'user/updateProfile/' + id , {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+    }
+
+    updatePreferences(data, id){
+        return fetch(this.url + 'user/updatePreferences/' + id , {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+    }
+
+    updateNotification(data, id){
+        return fetch(this.url + 'user/updateNotification/' + id , {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

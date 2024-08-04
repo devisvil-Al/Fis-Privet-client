@@ -18,8 +18,8 @@ async function init(user){
             if(res.success){
                 btnAddCristall.innerHTML = `пригласи друзей и получай 10%`
                 btnAddCristall.classList.remove('nav__btn-getCri-active')
-                const user = await api.auth(tg.initDataUnsafe?.user?.id || user.id)
-                eventFriends(user)
+              
+                eventFriends(res.user)
             }
         })
     }

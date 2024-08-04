@@ -93,6 +93,30 @@ profileForm.addEventListener('submit', async e => {
     }
 })
 
+preferencesForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    const {team} = preferencesForm.elements
+    const data = {team: team.value}
+    const res = await api.updatePreferences(data, AppData.user.telegramId)
+    if(res.success){
+        window.location.reload()
+    }
+})
+
+
+notificationForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    const {cristals} = notificationForm.elements
+    const data = {cristals: cristals.checked}
+    const res = await api.updateNotification(data, AppData.user.telegramId)
+    if(res.success){
+        window.location.reload()
+    }
+})
+
+
+
+
 backbtnOptions.addEventListener('click', () =>  window.scroll({
     top: 0,
     behavior: 'smooth'
