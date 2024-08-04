@@ -18,10 +18,20 @@ async function init(user){
             if(res.success){
                 btnAddCristall.innerHTML = `пригласи друзей и получай 10%`
                 btnAddCristall.classList.remove('nav__btn-getCri-active')
+                eventFriends()
             }
         })
     }
 
+    eventFriends()
+    addFriends.addEventListener('click', () => {
+        const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
+        const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
+        window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
+    })
+}
+
+async function eventFriends (){
     const {friends} = await api.getFriends(user.friends)
     if(friends.length !== 0){
         friendsContainer.innerHTML = ''
@@ -31,14 +41,7 @@ async function init(user){
     } else {
         userName.textContent = user.firstName
     }
-
-    addFriends.addEventListener('click', () => {
-        const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
-        const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
-        window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
-    })
 }
-
 
 
 function renderFriends (data, index){
