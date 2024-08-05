@@ -8,6 +8,9 @@ const addFriends = document.querySelector('.addFriend')
 const btnAddCristall = document.querySelector('.nav__btn-getCri')
 const userName = document.querySelector('.noFriends__userName')
 
+console.log(document.referrer);
+
+
 async function init(user){
     preloader.style.display = 'none'
     if(user.hubCristall.cristall){

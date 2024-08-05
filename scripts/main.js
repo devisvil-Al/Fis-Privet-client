@@ -27,6 +27,10 @@ const configSliderActions = {
 
 
 
+console.log(document.referrer);
+
+
+
 function init(user){
         api.getAppData(user.telegramId)
         .then(res => {
@@ -37,15 +41,17 @@ function init(user){
             }
         })
     cristall.textContent = user.cristall
-    modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     main.classList.remove('hidden__main')
-    modalGreetings.classList.add('modal-visible')
-    modalGreetings.querySelector('.modal__name') .textContent = user.firstName
-    modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
     preloader.style.display = 'none'
-    setTimeout( () => {
-        modalGreetings.classList.remove('modal-visible') 
-    }, 2000)
+    if(document.referrer.includes('index.html')){
+        modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
+        modalGreetings.classList.add('modal-visible')
+        modalGreetings.querySelector('.modal__name') .textContent = user.firstName
+        modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
+        setTimeout( () => {
+            modalGreetings.classList.remove('modal-visible') 
+        }, 2000)
+    }
 }
 
 check(init, api)
