@@ -25,12 +25,6 @@ const configSliderActions = {
     container : containerEvents
 }
 
-
-
-console.log(document.referrer);
-
-
-
 function init(user){
         api.getAppData(user.telegramId)
         .then(res => {
