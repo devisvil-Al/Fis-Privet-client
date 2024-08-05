@@ -43,7 +43,7 @@ function init(user){
     cristall.textContent = user.cristall
     main.classList.remove('hidden__main')
     preloader.style.display = 'none'
-    if(document.referrer.includes('index.html')){
+    if(document.referrer.includes('https://web.telegram.org/')){
         modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
         modalGreetings.classList.add('modal-visible')
         modalGreetings.querySelector('.modal__name') .textContent = user.firstName
