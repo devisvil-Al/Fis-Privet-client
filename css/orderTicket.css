@@ -1,0 +1,125 @@
+.wrapper{
+    background-color: white;
+    padding: 0;
+    min-width: 300px;
+    height: 100vh;
+}
+.nav__toggle{
+    padding: 16px 10px;
+    font-size: 13px;
+}
+.nav__continer{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 0 0 30px 30px;
+    background-color: #DA6713;
+    color: white;
+}
+
+.nav__title{
+    max-width: 250px;
+}
+.nav__name{
+    font-weight: 700;
+
+}
+
+.stadion{
+    padding: 20px;
+}
+.stadion__container{
+    justify-content: center;
+    display: flex;
+    height: 90vw;
+    min-height: 260px;
+    max-height: 365px;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.gamePlace{
+    width: 65vw;
+    min-width: 140px;
+    max-width: 220px;
+    height: 100%;
+    background-position: center;
+    background-image: url(../img/gamePlace.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.tribune__container{
+    height: 100%;
+    width: 20vw;
+    display: grid;
+    grid-template-rows: 16% 15% 15% 15% 15% 16%;
+    gap: 1.5%;
+}
+
+
+.tribune{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cornerLeft-Top{
+    background-image: url(../img/cornerTribune-left-top.svg);
+}
+
+.cornerRight-Top{
+    background-image: url(../img/cornerTribune-right-top.svg);
+}
+
+
+
+.corner{
+    background-image: url(../img/cornerTribune.svg);
+}
+
+.corner-right{
+    background-image: url(../img/cornerTribuneRight.svg);
+}
+
+.tribune-right{
+    background-image: url(../img/tribuneRight.svg);
+}
+
+.tribune-middle-right1{
+    background-image: url(../img/tribuneMiddleRight1.svg);
+}
+.tribune-middle-right2{
+    background-image: url(../img/tribuneMiddleRight2.svg);
+}
+
+.cornerRight-Bottom{
+    background-image: url(../img/containertribune-right-bottom.svg);
+}
+
+.cornerLeft-Bottom{
+    background-image: url(../img/containertribune-left-bottom.svg);
+}
+
+.tribune-left{
+    background-image: url(../img/tribune.svg);
+}
+
+.tribune-active{
+
+}
+
+.nextBtn{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #DA6713;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

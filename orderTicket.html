@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/nullstyle.css">
+    <link rel="stylesheet" href="./css/orderTicket.css">
+    <title>Ticket</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nav__continer">
+            <nav class="nav">
+                <button class="nav__btn"></button>
+                <div class="nav__toggle_container">
+                    <div class="nav__toggle nav__toggle-active">МЕСТО</div>
+                    <div class="nav__toggle">ОПЛАТА</div>
+                    <div class="nav__toggle">БИЛЕТ</div>
+                </div>
+            </nav>
+            <p class="nav__title"><span class="nav__name">#NAME</span>, выберите трибуну наиболее комфортную для Вас</p>
+        </div>
+
+        <section class="stadion">
+            <div class="stadion__container">
+                <div class="tribune__container">
+                    <div class="tribune cornerLeft-Top"  data-active="cornerTribune-left-top-active" id="cornerLeft-Top"></div>
+                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
+                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
+                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
+                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
+                    <div class="tribune cornerLeft-Bottom" data-active="containertribune-left-bottom-active" id="cornerLeft-Bottom"></div>
+
+                </div>
+                <div class="gamePlace"></div>
+                <div class="tribune__container">
+                    <div class="tribune cornerRight-Top" data-active="cornerTribune-right-top-active" id="cornerRight-Top"></div>
+                    <div class="tribune tribune-right" data-active="tribuneRight-active" id="tribune1"></div>
+                    <div class="tribune tribune-middle-right1" data-active="tribuneMiddleRight1-active" id="tribune-middle-right1"></div>
+                    <div class="tribune tribune-middle-right2" data-active="tribuneMiddleRight2-active" id="tribune-middle-right2"></div>
+                    <div class="tribune tribune-right" data-active="tribuneRight-active" id="tribune1"></div>
+                    <div class="tribune cornerRight-Bottom" data-active="containertribune-right-bottom-active" id="cornerRight-Bottom"></div>
+                </div>
+            </div>
+            <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+        </section>
+    </div>
+    
+    <script type="module" src="./scripts/orderTicket.js"></script>
+
+</body>
+</html>
