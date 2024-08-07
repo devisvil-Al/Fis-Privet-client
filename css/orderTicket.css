@@ -3,10 +3,42 @@
     padding: 0;
     min-width: 300px;
     height: 100vh;
+    position: relative;
 }
-.nav__toggle{
-    padding: 16px 10px;
-    font-size: 13px;
+.nav__step_container{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.nav__step_progress_container{
+    display: flex;
+    gap: 5px;
+}
+
+.nav__step{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    width: 50px;
+    align-items: center;
+    color: #FFFFFF33;
+}
+
+.nav__step_progress{
+    background-color: #FFFFFF33;
+    width: 100%;
+    min-width: 28px;
+    height: 1px;
+    border-radius: 10px;
+}
+
+.nav__step-active{
+    color: white;
+}
+
+.nav__step_progress-active{
+    background-color: white;
 }
 .nav__continer{
     padding: 20px;
@@ -16,6 +48,7 @@
     border-radius: 0 0 30px 30px;
     background-color: #DA6713;
     color: white;
+  
 }
 
 .nav__title{
