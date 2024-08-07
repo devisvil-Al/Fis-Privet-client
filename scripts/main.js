@@ -15,6 +15,7 @@ const modalEvent = document.querySelector('.modal-event')
 const backModalEvent = modalEvent.querySelector('.nav__btn-back')
 const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
+const modalEventBtn = document.querySelector('.modal-event_btn')
 
 const configSliderEvents = {
     count : 0,
@@ -137,3 +138,4 @@ backModalEvent.addEventListener('click', () => {
     modalEvent.querySelector('img').src = ``
 })
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
+modalEventBtn.addEventListener('click', () => window.location.href = '../orderTicket.html')
