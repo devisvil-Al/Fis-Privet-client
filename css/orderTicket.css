@@ -10,7 +10,7 @@
 
 
 .sections{
-    padding: 20px;
+    padding: 15px;
 }
 .nav__step_container{
     display: flex;
@@ -66,7 +66,7 @@
 }
 
 .stadion{
-    padding: 20px 15px;
+    padding: 20px 0px;
 }
 .stadion__container{
     justify-content: center;
@@ -80,7 +80,7 @@
 
 .gamePlace{
     width: 65vw;
-    min-width: 140px;
+    min-width: 150px;
     max-width: 220px;
     height: 100%;
     /* background-position: center; */
