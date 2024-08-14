@@ -111,6 +111,11 @@ class Api {
         })
         return await res.json()
     }
+
+    async getTickets(tribune, id){
+        return fetch(this.url + 'tickets' + `?tribune=${tribune}&id=${id}`)
+            .then(res => res.json())
+    }
 }
 
 

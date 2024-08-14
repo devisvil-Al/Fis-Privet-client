@@ -17,6 +17,8 @@ const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
 
+const appData = {sportEvent : {}, action : {}}
+
 const configSliderEvents = {
     count : 0,
     container : containerActions
@@ -115,6 +117,7 @@ function renderSportEvents (event, index){
     console.log(clone);
     
     clone.addEventListener('click', () => {
+        appData.sportEvent = event
         modalEvent.classList.add('modal-visible')
         modalEvent.querySelector('img').src = `../img/kristall${index + 1}.svg`
         modalEvent.querySelector('.nav__toggle_command').textContent = event.name
@@ -138,4 +141,7 @@ backModalEvent.addEventListener('click', () => {
     modalEvent.querySelector('img').src = ``
 })
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
-modalEventBtn.addEventListener('click', () => window.location.href = '../orderTicket.html')
+modalEventBtn.addEventListener('click', () => {
+    window.location.href = '../orderTicket.html'
+    localStorage.setItem('event', JSON.stringify(appData.sportEvent))
+})

@@ -6,8 +6,14 @@
     <link rel="stylesheet" href="./css/nullstyle.css">
     <link rel="stylesheet" href="./css/orderTicket.css">
     <title>Ticket</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+
+    <section class="preloader modal-hidden">
+        <img src="./img/main.gif" alt="preloader">
+    </section>
+
     <div class="wrapper">
         <div class="nav__continer">
             <nav class="nav">
@@ -31,29 +37,59 @@
             <p class="nav__title"><span class="nav__name">#NAME</span>, выберите трибуну наиболее комфортную для Вас</p>
         </div>
 
-        <section class="stadion">
-            <div class="stadion__container">
-                <div class="tribune__container">
-                    <div class="tribune cornerLeft-Top"  data-active="cornerTribune-left-top-active" id="cornerLeft-Top"></div>
-                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
-                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
-                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
-                    <div class="tribune tribune-left" data-active="tribune-active" id="tribune1"></div>
-                    <div class="tribune cornerLeft-Bottom" data-active="containertribune-left-bottom-active" id="cornerLeft-Bottom"></div>
+        <section class="sections">
+            <section class="stadion section section-active">
+                <div class="stadion__container">
+                    <div class="tribune__container">
+                        <div class="tribune cornerLeft-Top"  data-active="cornerTribune-left-top-active" id="1"></div>
+                        <div class="tribune tribune-left" data-active="tribune-active" id="2.1"></div>
+                        <div class="tribune tribune-left" data-active="tribune-active" id="2.2"></div>
+                        <div class="tribune tribune-left" data-active="tribune-active" id="2.3"></div>
+                        <div class="tribune tribune-left" data-active="tribune-active" id="2.4"></div>
+                        <div class="tribune cornerLeft-Bottom" data-active="containertribune-left-bottom-active" id="3"></div>
+                    </div>
+                    <div class="gamePlace"></div>
+                    <div class="tribune__container">
+                        <div class="tribune cornerRight-Top" data-active="cornerTribune-right-top-active" id="4"></div>
+                        <div class="tribune tribune-right" data-active="tribuneRight-active" id="5.1"></div>
+                        <div class="tribune tribune-middle-right1" data-active="tribuneMiddleRight1-active" id="5.2"></div>
+                        <div class="tribune tribune-middle-right2" data-active="tribuneMiddleRight2-active" id="5.3"></div>
+                        <div class="tribune tribune-right" data-active="tribuneRight-active" id="5.4"></div>
+                        <div class="tribune cornerRight-Bottom" data-active="containertribune-right-bottom-active" id="6"></div>
+                    </div>
+                </div>
+                <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+            </section>
 
+            <section class="choisePlace section">
+                <div class="infoBlock">
+                    <div class="logo"><img src="./img/Logo.svg" alt=""></div>
+                    <div class="place__info_container">
+                        <p>Выберите понравившееся место!</p>
+                    </div>
                 </div>
-                <div class="gamePlace"></div>
-                <div class="tribune__container">
-                    <div class="tribune cornerRight-Top" data-active="cornerTribune-right-top-active" id="cornerRight-Top"></div>
-                    <div class="tribune tribune-right" data-active="tribuneRight-active" id="tribune1"></div>
-                    <div class="tribune tribune-middle-right1" data-active="tribuneMiddleRight1-active" id="tribune-middle-right1"></div>
-                    <div class="tribune tribune-middle-right2" data-active="tribuneMiddleRight2-active" id="tribune-middle-right2"></div>
-                    <div class="tribune tribune-right" data-active="tribuneRight-active" id="tribune1"></div>
-                    <div class="tribune cornerRight-Bottom" data-active="containertribune-right-bottom-active" id="cornerRight-Bottom"></div>
+
+                <div class="scrollContainer" tabindex="0">
+                    <div class="place__container"></div>
                 </div>
-            </div>
-            <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+                <div class="total">
+                    <div class="cri_container">
+                        <p class="cri_title">Потратить кристаллы</p>
+                        <input placeholder="у вас 800 кристаллов" class="cri__input"/>
+                    </div>
+                    <div class="cri_container">
+                        <p class="money_total">Цена билетов: <span>0</span>р.</p>
+                        <p class="money_total-true">Итого: <span>0</span>р.</p>
+                    </div>
+                </div>
+
+                <button class="prevBtn"><img src="./img/rightVector-white.svg" alt=""></button>
+                <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+            </section>
+
+
         </section>
+
     </div>
     
     <script type="module" src="./scripts/orderTicket.js"></script>
