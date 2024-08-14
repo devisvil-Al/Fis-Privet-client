@@ -343,3 +343,7 @@
 .section-active{
     display: block;
 }
+
+.total{
+    font-size: 12px;
+}
