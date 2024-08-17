@@ -6,6 +6,8 @@ import { check } from "./Components/init.js"
 
 
 // Выбор трибуны
+const toggle = document.querySelector('.toggle')
+const radio = document.querySelector('.radio')
 const preloader = document.querySelector('.preloader')
 const sections = document.querySelectorAll('.section')
 const btn = document.querySelector('.nextBtn')
@@ -104,16 +106,26 @@ function renderTribune(data){
     places.append(placeElement)  
 }
 
-placeContainer.onfocus = () => {
-    placeContainer.classList.add('scrollContainer-scale')
-}
+// placeContainer.onfocus = () => {
+//     placeContainer.classList.add('scrollContainer-scale')
+// }
 
-placeContainer.onblur = () => {
-    placeContainer.classList.remove('scrollContainer-scale')
-}
+// placeContainer.onblur = () => {
+//     placeContainer.classList.remove('scrollContainer-scale')
+// }
 
-placeContainer.addEventListener('click', () => {
-    placeContainer.focus()
+// placeContainer.addEventListener('click', () => {
+//     placeContainer.focus()
+// })
+
+
+toggle.addEventListener('click', () => {
+    toggle.previousElementSibling.checked = !toggle.previousElementSibling.checked
+    if(toggle.previousElementSibling.checked){
+        placeContainer.classList.add('scrollContainer-scale')
+    } else {
+        placeContainer.classList.remove('scrollContainer-scale')
+    }
 })
 
 function addTicketBlock(data){
@@ -180,7 +192,7 @@ inpCristall.addEventListener('input', () => {
     if(inpCristall.value > total){
         inpCristall.value = total
     }
-    const value = inpCristall.value
+    const value = inpCristall.value / 10
     totalPriceTrue(value)
 })
 
