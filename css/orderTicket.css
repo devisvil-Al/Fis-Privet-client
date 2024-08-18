@@ -3,7 +3,7 @@
     padding: 0;
     min-width: 300px;
     height: 100vh;
-    min-height: 673px;
+    min-height: 600px;
     position: relative;
 }
 
@@ -325,13 +325,14 @@
 .cri_title {
 }
 .cri__input {
-    width: 150px;
+    width: 120px;
     padding: 5px 10px;
     border: #DA6713 solid 1px;
     border: 8px;
-    font-size: 13px;
+    font-size: 10px;
     background-color: #da661328;
     color: #DA6713;
+    border-radius: 8px;
 }
 
 .cri__input::placeholder {

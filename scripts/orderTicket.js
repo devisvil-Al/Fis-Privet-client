@@ -189,7 +189,7 @@ inpCristall.addEventListener('input', () => {
     if(appData.user.cristall < inpCristall.value){
         inpCristall.value = appData.user.cristall
     }
-    if(inpCristall.value > total){
+    if(inpCristall.value > total * 10){
         inpCristall.value = total
     }
     const value = inpCristall.value / 10
