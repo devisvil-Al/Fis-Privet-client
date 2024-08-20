@@ -51,7 +51,7 @@ function init(user){
     }
 }
 
-check(init, api)
+
      
 
 async function renderAction (action, id){
@@ -60,8 +60,6 @@ async function renderAction (action, id){
     price.textContent = action.price
     clone.querySelector('.slide__title').textContent = action.name
     const btn = clone.querySelector('.slide__btn')
-    console.log(action.state);
-    
     if(action.state === 'create'){
         btn.textContent = 'выполнить' 
         btn.addEventListener('click', setStateEvent)
@@ -115,9 +113,7 @@ function renderSportEvents (event, index){
     clone.querySelector('.event__time').textContent = event.time
     clone.querySelector('.event__date').textContent = event.date
     clone.querySelector('.event__address').textContent = event.address  
-    configSliderActions.container.append(clone)
-    console.log(clone);
-    
+    configSliderActions.container.append(clone)    
     clone.addEventListener('click', () => {
         appData.sportEvent = event
         modalEvent.classList.add('modal-visible')
@@ -129,10 +125,6 @@ function renderSportEvents (event, index){
         modalEvent.querySelector('.modal-event_description').textContent = event.description
     })
 }
-
-
-
-
 
 containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSliderEvents))
 containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
@@ -147,3 +139,6 @@ modalEventBtn.addEventListener('click', () => {
     window.location.href = '../orderTicket.html'
     localStorage.setItem('event', JSON.stringify(appData.sportEvent))
 })
+
+
+check(init, api)
