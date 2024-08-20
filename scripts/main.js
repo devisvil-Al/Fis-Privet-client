@@ -60,6 +60,8 @@ async function renderAction (action, id){
     price.textContent = action.price
     clone.querySelector('.slide__title').textContent = action.name
     const btn = clone.querySelector('.slide__btn')
+    console.log(action.state);
+    
     if(action.state === 'create'){
         btn.textContent = 'выполнить' 
         btn.addEventListener('click', setStateEvent)

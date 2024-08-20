@@ -1,10 +1,6 @@
 import { api } from "./Api.js"
 import { check } from "./Components/init.js"
 
-
-
-
-
 // Выбор трибуны
 const toggle = document.querySelector('.toggle')
 const radio = document.querySelector('.radio')
@@ -105,18 +101,6 @@ function renderTribune(data){
     }
     places.append(placeElement)  
 }
-
-// placeContainer.onfocus = () => {
-//     placeContainer.classList.add('scrollContainer-scale')
-// }
-
-// placeContainer.onblur = () => {
-//     placeContainer.classList.remove('scrollContainer-scale')
-// }
-
-// placeContainer.addEventListener('click', () => {
-//     placeContainer.focus()
-// })
 
 
 toggle.addEventListener('click', () => {
