@@ -19,7 +19,9 @@
             <button class="nav__btn"></button>
             <div class="nav__toggle_container">
                 <div class="nav__toggle nav__toggle-active">Уровни</div>
-                <div class="nav__toggle">Профиль</div>
+                <div class="nav__toggle">Зачисления</div>
+                <div class="nav__toggle">Списания</div>
+
             </div>
         </nav>
 
@@ -41,22 +43,94 @@
             </div>
         </section>
 
-        <section class="section__container profile">
-            <div class="profile__avatar">
-                <img src="./img/Avatar.svg" alt="avatar">
-            </div>
-            <form class="profile__form">
-                <input type="text" name="firstName" placeholder="#Имя" class="form__input">
-                <input type="text" name="lastName" placeholder="#Фамилия" class="form__input">
-                <input type="text" name="country" placeholder="#Город" class="form__input">
-                <label >Дата рождения: </label>
-                <div class="profile__form__container">
-                    <input type="number" name="day" placeholder="#День" class="form__input">
-                    <input type="number" name="month" placeholder="#Месяц" class="form__input">
-                    <input type="number" name="year" placeholder="#Год" class="form__input">
+        <section class="section__container deposits ">
+            <div class="deposits__header"></div>
+
+            <div class="deposits__body">
+                <div class="card">
+                    <div class="flip">
+                        <img src="./img/card_friends.svg" class="card__img" alt="">
+                        <h2 class="card__title">зачисления от
+                            ваших друзей</h2>
+                        <p class="card__total"><span>0</span>кр</p>
+                    </div>
+                    <div class="flap">
+                        <h2 class="card__title">20%</h2>
+                        <p class="card__total">вы получаете с заработанных кристаллов ваших друзей</p>
+                    </div>
                 </div>
-                <button class="submit__btn" disabled>Сохранить</button>
-            </form>
+                <div class="card">
+                    <div class="flip">
+                        <img src="./img/card__comments.svg" class="card__img" alt="">
+                        <h2 class="card__title">зачисления за комментарии</h2>
+                        <p class="card__total"><span>0</span>кр</p>
+                    </div>
+                    <div class="flap">
+                        <h2 class="card__title">12 кр</h2>
+                        <p class="card__total">вы получаете за каждый комментарий в канале телеграм вашего клуба</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="flip">
+                        <img src="./img/card__tickets.svg" class="card__img" alt="">
+                        <h2 class="card__title">зачисления
+                            за посещения матчей </h2>
+                        <p class="card__total"><span>0</span>кр</p>
+                    </div>
+                    <div class="flap">
+                        <h2 class="card__title">10%</h2>
+                        <p class="card__total">вы получаете с приобретенных билетов</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="flip">
+                        <img src="/img/card_tasks.svg" class="card__img" alt="">
+                        <h2 class="card__title">зачисления
+                            за задания </h2>
+                        <p class="card__total"><span>0</span>кр</p>
+                    </div>
+                    <div class="flap">
+                        <h2 class="card__title">Кристаллы</h2>
+                        <p class="card__total">полученный за выпонение заданий</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section__container writeOffs ">
+            <div class="writeOffs__header"></div>
+            <div class="writeOffs__body">
+                <div class="writeOffs__card_main">
+                    <img src="./img/main__ticket.svg" alt="">
+                    <div class="card_main__content">
+                        <h2 class="card_main__title">2050 кр</h2>
+                        <p class="card_main__description">Вы потратили в этом месяце</p>
+                        <button class="card_main__btn">Списать еще</button>
+                    </div>
+                </div>
+                <div class="writeOffs__card">
+                    <img src="" alt="">
+                    <p class="card__description">перейти быстрее на следующий уровень</p>
+                    <button class="card__btn">250 ₽</button>
+                </div>
+                <div class="writeOffs__card">
+                    <img src="./img/burst_cristall.svg" alt="">
+                    <p class="card__description">купить множитель кристаллов на 24ч</p>
+                    <button class="card__btn">280 ₽</button>
+                </div>
+                <div class="writeOffs__card">
+                    <img src="./img/merch.svg" alt="">
+                    <p class="card__description">приобретение атрибутики</p>
+                    <button class="card__btn">скоро</button>
+                </div>
+                <div class="writeOffs__card">
+                    <img src="./img/eat.svg" alt="">
+                    <p class="card__description">приобретение 
+                        еды и напитков</p>
+                    <button class="card__btn">скоро</button>
+                </div>
+            </div>
 
         </section>
 

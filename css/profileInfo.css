@@ -1,11 +1,12 @@
 .wrapper {
-    padding: 20px;
+    padding: 10px;
     background-color: #DA6713;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
     gap: 20px;
+    min-width: 300px;
 }
 .nav {
     display: flex;
@@ -33,8 +34,9 @@
 .nav__toggle {
     color: white;
     background-color: #DA6713;
-    padding: 16px;
+    padding: 16px 8px;
     border-radius: 15px;
+    font-size: 13px;
     cursor: pointer;
     transition: 
     0.5s color, 0.5s background-color;
@@ -51,7 +53,7 @@
     flex-direction: column;
     gap: 20px;
     border-radius: 20px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .levels {
@@ -106,55 +108,185 @@
     line-height: 18px;
 }
 
-.profile {
-    gap: 40px;
-    padding: 20px;
+.deposits {
+}
+.deposits__header {
+}
+.deposits__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    width: 100%;
+    height: 100%;
     background-color: white;
     border-radius: 20px;
-    font-size: 12px;
-    height: 100%;
+    padding: 10px;
+    animation: noScaleCard 0.8s;
 }
-.profile__avatar {
-    width: 100px;
-    min-height: 100px;
-    border-radius: 50%;
-    background-color: #DA6713;
+.flip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.5s;
+}
+.card__img {
     margin: auto;
-    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    display: block;
 }
-.profile__avatar img {
-    width: 100%;
+.card__title {
+    font-size: 14px;
+    text-align: center;
+    color: #DA6713;
+}
+.card__total {
+    text-align: center;
+    color: #DA6713;
+}
+.flap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.5s;
+}
 
+.card .flap{
+    display: none;
+    opacity: 0;
 }
-.profile__form {
+
+@keyframes noScaleCard {
+    0%{
+        transform: scaleX(0);
+    }
+  
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes scaleCard {
+    0%{
+        transform: scaleX(0);
+    }
+ 
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.card-active {
+    animation: scaleCard 0.8s;
+}
+
+.card-active .flip{
+    display: none;
+    opacity: 0;
+}
+
+.card-active .flap{
+    display: flex;
+    opacity: 1;
+}
+
+.writeOffs {
+}
+
+.writeOffs__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.writeOffs__card_main {
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    color: #DA6713;
+    animation: scaleCard 0.8s;
+}
+.writeOffs__card_main img {
+    width: 50%;
+}
+.card_main__content {
+    width: 129px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: space-between;
-    height: 100%;
 }
-.form__input {
-    padding: 15px;
+.card_main__title {
+    text-align: center;
+}
+.card_main__description {
+    text-align: center;
+}
+.card_main__btn {
     width: 100%;
-    border-radius: 19px;
-    border: #DA6713 1px solid;
-}
-.profile__form__container {
-    display: flex;
-    gap: 10px;
-}
-.submit__btn {
-    margin-top: 10px;
-    padding: 20px;
-    background-color: #DA6713;
     color: white;
-    border-radius: 20px;
+    background-color: #DA6713;
+    padding: 8px 5px;
+    border-radius: 8px;
+  
 }
+.writeOffs__card {
+    animation: scaleCard 0.8s;
+}
+.writeOffs__card img{
+    width: 50%;
+    margin: auto;
+
+}
+
+.writeOffs__card {
+    width: 45%;
+    flex-grow: 1;
+    background-color: white;
+    color: #DA6713;
+    height: 150px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 160px;
+    max-height: 200px;
+    height: 50vw;
+}
+.card__description {
+    text-align: center;
+    font-size: 13px;
+}
+.card__btn {
+    width: 100%;
+    color: white;
+    background-color: #DA6713;
+    padding: 8px 5px;
+    border-radius: 8px;
+}
+
+
+
 
 
 
 
 .section-active{
     display: flex;
-
 }
