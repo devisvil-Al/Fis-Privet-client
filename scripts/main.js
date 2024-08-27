@@ -17,6 +17,8 @@ const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
 
+window.Telegram.WebApp.expand()
+
 const appData = {sportEvent : {}, action : {}}
 
 const configSliderEvents = {
