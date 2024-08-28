@@ -142,5 +142,6 @@ modalEventBtn.addEventListener('click', () => {
     localStorage.setItem('event', JSON.stringify(appData.sportEvent))
 })
 
-
-check(init, api)
+document.addEventListener('DOMContentLoaded', () => {
+    check(init, api)
+})

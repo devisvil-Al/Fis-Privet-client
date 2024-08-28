@@ -180,4 +180,6 @@ inpCristall.addEventListener('input', () => {
     totalPriceTrue(value)
 })
 
-check(init, api)
+document.addEventListener('DOMContentLoaded', () => {
+    check(init, api)
+})

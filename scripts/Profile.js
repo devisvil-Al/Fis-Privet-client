@@ -133,5 +133,7 @@ toggles.forEach((toggle) => {
     })
 })
 
-check(init, api)
+document.addEventListener('DOMContentLoaded', () => {
+    check(init, api)
+})
 enableValidation('.profile__form .form__input', '.profile__form .submit__btn')

@@ -112,8 +112,13 @@ class Api {
         return await res.json()
     }
 
-    async getTickets(tribune, id){
+    getTickets(tribune, id){
         return fetch(this.url + 'tickets' + `?tribune=${tribune}&id=${id}`)
+            .then(res => res.json())
+    }
+
+    getProfileStatistics(id){
+        return fetch(this.url + 'user/getProfileStatistics/' + id)
             .then(res => res.json())
     }
 }
