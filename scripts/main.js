@@ -17,7 +17,11 @@ const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
 
-window.Telegram.WebApp.expand()
+
+const app = window.Telegram.WebApp;
+app.ready()
+app.expand()
+app.isClosingConfirmationEnabled = true;
 
 const appData = {sportEvent : {}, action : {}}
 
