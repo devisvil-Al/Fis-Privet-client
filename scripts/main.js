@@ -103,6 +103,10 @@ async function renderAction (action, id){
             price.textContent = ''
             price.classList.add('slide__cri-closed')
             configSliderEvents.container.append(clone)
+        } else {
+            const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
+            const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
+            window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
         }
     }
     configSliderEvents.container.append(clone)
