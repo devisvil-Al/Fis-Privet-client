@@ -19,7 +19,7 @@ async function init(user){
         btnAddCristall.addEventListener('click', async () => {
             const res = await api.getCristalls(user.telegramId)
             if(res.success){
-                btnAddCristall.innerHTML = `пригласи друзей и получай 10%`
+                btnAddCristall.innerHTML = `пригласи друзей и получай 20%`
                 btnAddCristall.classList.remove('nav__btn-getCri-active')
               
                 eventFriends(res.user)
