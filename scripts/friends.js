@@ -1,5 +1,7 @@
 import { api } from "./Api.js"
 import { check } from "./Components/init.js"
+import { levelPoint } from "./Components/init.js"
+
 
 const preloader = document.querySelector('.preloader')
 const backbtn = document.querySelector('.nav__btn')
@@ -7,6 +9,7 @@ const friendsContainer = document.querySelector('.friends__container')
 const addFriends = document.querySelector('.addFriend')
 const btnAddCristall = document.querySelector('.nav__btn-getCri')
 const userName = document.querySelector('.noFriends__userName')
+
 
 console.log(document.referrer);
 
@@ -40,7 +43,7 @@ async function eventFriends (user){
     if(friends.length !== 0){
         friendsContainer.innerHTML = ''
         friends.push(user)
-        friends.sort((a, b) => b.cristall - a.cristall)
+        friends.sort((a, b) => (b.cristall + levelPoint[b.level]) -(a.cristall + levelPoint[a.level]))
         friends.forEach(renderFriends)
     } else {
         userName.textContent = user.firstName
@@ -59,7 +62,7 @@ function renderFriends (data, index){
         <p class="name">${data.firstName} <br> ${data.lastName}</p>
         <div class="friend__info_container">
             <div class="block__info cristal">кр <br> ${data.cristall}</div>
-            <div class="block__info level">ур <br>1</div>
+            <div class="block__info level">ур <br> ${data.level}</div>
             <div class="block__info raiting ${index < 3 ? 'cupe' : 'normal'}">${index + 1}</div>
         </div>  
     `

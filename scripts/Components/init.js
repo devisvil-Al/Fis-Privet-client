@@ -15,3 +15,11 @@ export async function check (init, api){
         }
     }
 }
+
+export const levelPoint = {
+    1: 0,
+    2: 300,
+    3: 900,
+    4: 2000,
+    5: 4000,
+}
