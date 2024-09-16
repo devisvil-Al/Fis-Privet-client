@@ -62,30 +62,44 @@
 
 }
 .levels__container{
-    height: 40vh;
+    min-height: 40vh;
     border-radius: 19px;
-    background-image: url(../img/cr.svg);
-    background-repeat: no-repeat;
-    background-size: 30%;
-    background-position-y: center;
-    background-position-x: 20px;
-    padding: 26px 0 26px 50%;
+    padding: 20px 20px;
     background-color: white;
+}
+.levels__info__container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    height: 180px;
+}
+
+.levels__logo{
+    height: 180px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
 }
 .levels__info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
 }
 .levels__title {
     color: #DA6713;
+    width: 100%;
 }
 .levels__progress {
     color: #DA6713;
     border: solid 1px #DA6713;
     border-radius: 20px;
-    width: 80%;
+    width: 100%;
     text-align: center;
     padding: 5px 0;
     position: relative;
@@ -96,13 +110,14 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
+    width: 100%;
 }
 .levels__other_container__button {
     color: #DA6713;
-    width: 80%;
+    width: 100%;
     border: solid 1px #DA6713;
     border-radius: 20px;
-    padding: 5px 0
+    padding: 5px 10px
 }
 .description{
     color: white;
@@ -132,9 +147,8 @@
     background-color: white;
     border-radius: 20px;
     padding: 10px;
-    animation: noScaleCard 0.5s;
+    /* animation: noScaleCard 0.5s; */
     position: relative;
-    
 }
 .flip {
     display: flex;
@@ -174,15 +188,7 @@
     display: none;
 }
 
-@keyframes noScaleCard {
-    0%{
-        transform: rotateY(-180deg);
-    }
-  
-    100%{
-        transform: rotateY(0deg);
-    }
-}
+
 
 @keyframes scaleCard {
     0%{
@@ -227,7 +233,6 @@
     justify-content: space-around;
     padding: 10px;
     color: #DA6713;
-    animation: scaleCard 0.8s;
 }
 .writeOffs__card_main img {
     width: 50%;
@@ -253,7 +258,7 @@
   
 }
 .writeOffs__card {
-    animation: scaleCard 0.8s;
+    /* animation: scaleCard 0.8s; */
 }
 .writeOffs__card img{
     width: 50%;

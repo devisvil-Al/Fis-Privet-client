@@ -18,7 +18,7 @@ export async function check (init, api){
 
 export const levelPoint = {
     1: 0,
-    2: 300,
+    2: 350,
     3: 900,
     4: 2000,
     5: 4000,
@@ -26,8 +26,8 @@ export const levelPoint = {
 
 export const levelName = {
     1: 'Гранит',
-    2: 'Гранит2',
-    3: 'Гранит3',
-    4: 'Гранит4',
-    5: 'Гранит5',
+    2: 'Кварцит',
+    3: 'Агат',
+    4: 'Топаз',
+    5: 'Сапфир',
 }

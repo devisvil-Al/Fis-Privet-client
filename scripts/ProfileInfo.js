@@ -25,15 +25,11 @@ async function init (user){
 
 function renderStatistics(data){
     const keys = Object.keys(data)
+    console.log(data)
     cards.forEach((card, index) => {
-        console.log();
-        
         const param = keys.find(key => card.id + 'Pay' === key)
-        console.log(param);
-        
         if(!param) return
         card.querySelector('.card__total span').innerText = data[param]
-        
     })
     
     

@@ -19,7 +19,9 @@ body{
     max-width: 500px;
     margin: auto;
 }
-
+.politic{
+    color: #DA6713;
+}
 .modal{
     position: fixed;
     top: 0;
