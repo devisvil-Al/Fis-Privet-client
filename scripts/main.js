@@ -1,9 +1,11 @@
 import { api } from "./Api.js";
 import {wheelScroll} from "./Slider.js"
 import { check } from "./Components/init.js";
+import { levelName } from "./Components/init.js";
 
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
+const mainLevel = document.querySelector('.point__level')
 const containerEvents = document.querySelector('.slider__events')
 const containerActions = document.querySelector('.slider__actions')
 const preloader = document.querySelector('.preloader')
@@ -17,13 +19,12 @@ const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
 
-
 const app = window.Telegram.WebApp;
 app.ready()
 app.expand()
 app.isClosingConfirmationEnabled = true;
 
-const appData = {sportEvent : {}, action : {}}
+const appData = {sportEvent : {}, action : {}, user : {}}
 
 const configSliderEvents = {
     count : 0,
@@ -35,6 +36,7 @@ const configSliderActions = {
 }
 
 function init(user){
+        appData.user = user
         api.getAppData(user.telegramId)
         .then(res => {
             if(res.success){
@@ -46,6 +48,7 @@ function init(user){
     cristall.textContent = user.cristall
     main.classList.remove('hidden__main')
     preloader.style.display = 'none'
+    mainLevel.textContent = `${user.level} ур. ${levelName[user.level]}`
     if(document.referrer.includes('https://web.telegram.org/')){
         modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
         modalGreetings.classList.add('modal-visible')
@@ -56,9 +59,6 @@ function init(user){
         }, 2000)
     }
 }
-
-
-     
 
 async function renderAction (action, id){
     const clone = templateAction.querySelector('.slide__actions').cloneNode(true)
@@ -116,6 +116,14 @@ async function renderAction (action, id){
     configSliderEvents.container.append(clone)
 }
 
+function openEvent(){
+    window.location.href = '../orderTicket.html'
+}
+
+function listenTickets(){
+    window.location.href = '../MyTickets.html'
+}
+
 function renderSportEvents (event, index){
     const clone = templateEvent.querySelector('.slide__event').cloneNode(true)
     clone.querySelector('img').src = `../img/kristall${index + 1}.svg`
@@ -124,6 +132,7 @@ function renderSportEvents (event, index){
     clone.querySelector('.event__date').textContent = event.date
     clone.querySelector('.event__address').textContent = event.address  
     configSliderActions.container.append(clone)    
+    const currentEvent = appData.user.tickets.find((item => item.event === event._id))
     clone.addEventListener('click', () => {
         appData.sportEvent = event
         modalEvent.classList.add('modal-visible')
@@ -133,8 +142,20 @@ function renderSportEvents (event, index){
         modalEvent.querySelector('.nav__toggle_date').textContent = event.date
         modalEvent.querySelector('.nav__toggle_time').textContent = event.time 
         modalEvent.querySelector('.modal-event_description').textContent = event.description
+        localStorage.setItem('event', JSON.stringify(appData.sportEvent))
+        if(currentEvent){
+            modalEventBtn.removeEventListener('click', openEvent)
+            modalEventBtn.addEventListener('click', listenTickets)
+            modalEventBtn.textContent = 'Посмотреть билеты'
+        } else {
+            modalEventBtn.removeEventListener('click', listenTickets)
+            modalEventBtn.addEventListener('click', openEvent)
+            modalEventBtn.textContent = 'Посетить матч'
+        }
     })
 }
+
+
 
 containerActions.addEventListener('mousewheel', (e) =>  wheelScroll(e, configSliderEvents))
 containerEvents.addEventListener('mousewheel', (e) => wheelScroll(e, configSliderActions))
@@ -145,10 +166,6 @@ backModalEvent.addEventListener('click', () => {
     modalEvent.querySelector('img').src = ``
 })
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
-modalEventBtn.addEventListener('click', () => {
-    window.location.href = '../orderTicket.html'
-    localStorage.setItem('event', JSON.stringify(appData.sportEvent))
-})
 
 document.addEventListener('DOMContentLoaded', () => {
     check(init, api)

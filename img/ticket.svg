@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1499.66 413.81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-7, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: .03em;
+      }
+
+      .cls-2 {
+        font-size: 150px;
+      }
+
+      .cls-2, .cls-4, .cls-5 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: .02em;
+      }
+
+      .cls-7 {
+        fill: none;
+      }
+
+      .cls-12 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-3, .cls-13, .cls-14, .cls-15 {
+        stroke: #fff;
+      }
+
+      .cls-16 {
+        letter-spacing: .02em;
+      }
+
+      .cls-17 {
+        letter-spacing: .03em;
+      }
+
+      .cls-18 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4 {
+        font-size: 60px;
+      }
+
+      .cls-5 {
+        font-size: 36px;
+      }
+
+      .cls-13 {
+        stroke-miterlimit: 22.93;
+      }
+
+      .cls-13, .cls-15 {
+        fill: #f36418;
+      }
+
+      .cls-14 {
+        fill: #000;
+      }
+
+      .cls-14, .cls-15 {
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+
+      .cls-19 {
+        letter-spacing: .02em;
+      }
+
+      .cls-20 {
+        letter-spacing: -.02em;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-7" x="53.88" y="53.88" width="306.05" height="306.05"/>
+    </clipPath>
+  </defs>
+  <g id="_Слой_1-2" data-name="Слой 1">
+    <rect class="cls-14" x="5.47" y="5" width="1489.2" height="403.81" rx="200.11" ry="200.11"/>
+    <circle class="cls-15" cx="206.91" cy="206.91" r="201.91"/>  
+    <text class="cls-4" transform="translate(651.38 171.04)"><tspan x="0" y="0">ПФК КРИ</tspan><tspan class="cls-9" x="231" y="0">С</tspan><tspan class="cls-12" x="267.9" y="0">Т</tspan><tspan class="cls-17" x="292.85" y="0">А</tspan><tspan x="331.61" y="0">Л — СПАР</tspan><tspan class="cls-12" x="594.47" y="0">Т</tspan><tspan x="619.43" y="0">АК</tspan></text>
+    <text class="cls-5" transform="translate(1008.28 105.53)"><tspan class="cls-8" x="0" y="0">г</tspan><tspan x="13.61" y="0">ра</tspan><tspan class="cls-19" x="51.44" y="0">ж</tspan><tspan x="76.35" y="0">данский пр., 100</tspan></text>
+    <text class="cls-2" transform="translate(1012.5 306.51)"><tspan x="0" y="0">18:00</tspan></text>
+    <text class="cls-4" transform="translate(773.63 247.7)"><tspan class="cls-10" x="0" y="0">с</tspan><tspan x="26.52" y="0">е</tspan><tspan class="cls-11" x="56.58" y="0">к</tspan><tspan class="cls-20" x="86.34" y="0">т</tspan><tspan x="109.8" y="0">ор 1</tspan></text>
+    <text class="cls-4" transform="translate(636.71 308.81)"><tspan x="0" y="0">ряд 1</tspan></text>
+    <text class="cls-4" transform="translate(799.46 308.15)"><tspan x="0" y="0">ме</tspan><tspan class="cls-16" x="68.4" y="0">с</tspan><tspan class="cls-20" x="96.24" y="0">т</tspan><tspan x="119.7" y="0">о 1</tspan></text>
+  </g>
+</svg>

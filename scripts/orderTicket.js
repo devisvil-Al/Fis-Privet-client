@@ -3,7 +3,7 @@ import { check } from "./Components/init.js"
 
 // Выбор трибуны
 const toggle = document.querySelector('.toggle')
-const radio = document.querySelector('.radio')
+const headerTitle = document.querySelector('.nav__header__title')
 const preloader = document.querySelector('.preloader')
 const sections = document.querySelectorAll('.section')
 const btn = document.querySelector('.nextBtn')
@@ -15,21 +15,34 @@ const infoBlockContainer = document.querySelector('.place__info_container')
 const prevBtn = document.querySelector('.choisePlace .prevBtn')
 const nextBtn = document.querySelector('.choisePlace .nextBtn')
 const navName = document.querySelector('.nav__name')
+const navSteps = document.querySelectorAll('.nav__step')
 const navStepProgress = document.querySelectorAll('.nav__step_progress')
 const total = document.querySelector('.money_total span')
 const totalTRUE = document.querySelector('.money_total-true span')
 const arrPlaces = []
 const inpCristall = document.querySelector('.cri__input')
+const templateTicket = document.querySelector('#ticket')
+const ticketContainer = document.querySelector('.ticket .container')
+const getTicketBtn = document.querySelector('.getTicket')
+
 const appData = {
     user: null,
     event: JSON.parse(localStorage.getItem('event')),
+    tickets : []
 }
 
-console.log(appData);
+const titles = [
+    'выберите трибуну наиболее комфортную для Вас',
+    'а теперь выберите место',
+    'Выбрите удобный способ оплаты и приобретите билет',
+    'Поздравляем, QR-код готов! Отсканируйте его у контролера'
 
+]
 
 function init(user){
-    console.log(user);
+    if(user.tickets.find(item => item.event === appData.event._id)){
+        window.location.href = '../index.html'
+    }
     appData.user = user
     navName.textContent = user.firstName
     inpCristall.placeholder = `у вас ${user.cristall} кристаллов`
@@ -41,18 +54,26 @@ function switchHeaderPlace (index1, index2){
     navStepProgress[index2].classList.add('nav__step_progress-active')
     sections[index1].classList.remove('section-active')
     sections[index2].classList.add('section-active')
+    headerTitle.textContent = titles[index2]
 }
 
+function switchNavStepProgress (index) {
+    sections.forEach(item => item.classList.remove('section-active'))
+    navStepProgress.forEach(item => item.classList.remove('nav__step_progress-active'))
+    navSteps.forEach(item => item.classList.remove('nav__step_progress-active'))
+    sections[index + 1].classList.add('section-active')
+    navSteps[index].children[0].classList.add('nav__step_progress-active')
+    headerTitle.textContent = titles[index + 1]
+}
 
 function getTickets (tribune) {
-    if(places.children.length !== 0) return
-    api.getTickets(tribune, '66abcfa211c56bce4ed9a76a').then(data => {
+    const {_id} = JSON.parse(localStorage.getItem('event'))
+    if(places.children.length !== 0 || !_id) return
+    api.getTickets(tribune, _id).then(data => {
         const tribuneSchema = data.schemaTickets
         for(let i = 0; i < tribuneSchema.length; i++){
-            console.log(tribuneSchema[i]);
             for(let j = 0; j < tribuneSchema[i].length; j++){
                 renderTribune(tribuneSchema[i][j])
-                
             }
         }
     })
@@ -78,12 +99,20 @@ function renderTribune(data){
         placeElement.classList.add('none')
     }else {
         placeElement.dataset.row = data.row + 1
+        if(data.status === 'closed'){
+            placeElement.classList.add('closed')
+        }
         placeElement.innerHTML = data.place
-        placeElement.addEventListener('click', () => {    
+        placeElement.addEventListener('click', () => {
+            if(data.status === 'closed'){
+                return
+            } 
             if(!placeElement.classList.contains('active')) {
                 if(arrPlaces.length === 3) return
                 arrPlaces.push(data)
                 placeElement.classList.add('active')
+                console.log(data);
+                
             }else {
                 placeElement.classList.remove('active')
                 arrPlaces.splice(arrPlaces.indexOf(data), 1)
@@ -111,6 +140,8 @@ toggle.addEventListener('click', () => {
         placeContainer.classList.remove('scrollContainer-scale')
     }
 })
+
+console.log(sections)
 
 function addTicketBlock(data){
     const div = document.createElement('div')
@@ -144,7 +175,49 @@ prevBtn.addEventListener('click', () => {
     switchHeaderPlace(1, 0)
 })
 
-nextBtn.addEventListener('click', () => {})
+nextBtn.addEventListener('click', async () => {
+    const userId = appData.user.telegramId
+    const obj = {
+        userId,
+        tickets: arrPlaces
+    }
+
+    // созданиеБилета
+
+    const res = await api.orderTicket(obj)
+    if(res.ok){
+        const data = await res.json()
+        appData.tickets = data.findTickets
+        switchNavStepProgress(2)
+        data.findTickets.forEach(renderTicket)
+    }
+    
+})
+
+function renderTicket(ticket) {
+    const element = templateTicket.content.querySelector('.qr').cloneNode(true)
+    const date = element.querySelector('.date span')
+    const time = element.querySelector('.time span')
+    const tribune = element.querySelector('.tribune span')
+    const row = element.querySelector('.row span')
+    const place = element.querySelector('.place span')
+    const img = element.querySelector('.qr_img')
+
+    date.textContent = ticket.date
+    time.textContent = ticket.time
+    tribune.textContent = ticket.tribune
+    row.textContent = ticket.row
+    place.textContent = ticket.place
+    img.src = `http://localhost:3000/qr/${ticket._id}`
+    ticketContainer.append(element)
+}
+
+getTicketBtn.addEventListener('click', async () => {
+    try{
+        const data = await api.sendTicketToTelegram(appData.tickets, appData.user.telegramId)
+        console.log(data)
+    } catch(e){console.log(e)}
+})
 
 backBtn.addEventListener('click', () => {
     window.location.href = '../index.html'

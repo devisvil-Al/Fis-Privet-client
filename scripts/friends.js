@@ -9,13 +9,16 @@ const friendsContainer = document.querySelector('.friends__container')
 const addFriends = document.querySelector('.addFriend')
 const btnAddCristall = document.querySelector('.nav__btn-getCri')
 const userName = document.querySelector('.noFriends__userName')
-
+const appData = {
+    user: null
+}
 
 console.log(document.referrer);
 
 
 async function init(user){
     preloader.style.display = 'none'
+    appData.user = user
     if(user.hubCristall.cristall){
         btnAddCristall.innerHTML = `Cобрать <br> ${user.hubCristall.cristall} кр`
         btnAddCristall.classList.add('nav__btn-getCri-active')
@@ -52,19 +55,26 @@ async function eventFriends (user){
 
 
 function renderFriends (data, index){
-    console.log(data);
+
+    console.log(appData.user.referrer.find(item => item.userId === data.telegramId));
+    
     const friendElement = document.createElement('div')
     friendElement.classList.add('friend__block')
     friendElement.innerHTML = `
         <div class='avatar__container'>
             <img class="friend__avatar" src="${data.avatar ? data.avatar : '' }" alt="">
         </div>
-        <p class="name">${data.firstName} <br> ${data.lastName}</p>
-        <div class="friend__info_container">
-            <div class="block__info cristal">кр <br> ${data.cristall}</div>
-            <div class="block__info level">ур <br> ${data.level}</div>
-            <div class="block__info raiting ${index < 3 ? 'cupe' : 'normal'}">${index + 1}</div>
-        </div>  
+        <div class="friend__info">
+            <p class="name">${data.firstName} <br> ${data.lastName}</p>
+            <img class="friend__referrer" src="${appData.user.referrer.find(item => item.userId === data.telegramId)? "../img/referrerFriend.svg" : ''}">
+            <div class="friend__info_container">
+                <div class="block__info cristal">кр <br> ${data.cristall}</div>
+                <div class="block__info level">ур <br> ${data.level}</div>
+                <div class="block__info raiting ">
+                   <div class="raiting__text ${index < 3 ? 'cupe' : 'normal'}">${index + 1}</div> 
+                </div>
+            </div>  
+        </div>
     `
     friendsContainer.append(friendElement)
 }

@@ -407,3 +407,52 @@
     background-color: #ffffff;
     border: solid 1px #DA6713;
 }
+.closed{
+    background-color: #da661339;
+}
+
+.ticket {
+}
+.section {
+    min-height: 400px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    /* max-height: 300px; */
+    height: calc(100vh - 300px);
+    overflow-y: scroll;
+    gap: 20px;
+}
+.qr {
+    width: 100%;
+    padding: 20px;
+    border: solid 2px #DA6713;
+    border-radius: 8px;
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.qr img {
+    width: 115px;
+}
+.qr__info{
+   display: flex;
+   flex-direction: column;
+   font-size: 13px;
+   gap: 5px;
+}
+
+.getTicket{
+    width: 100%;
+    background-color: #DA6713;
+    color: white;
+    padding: 19px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+   
+}

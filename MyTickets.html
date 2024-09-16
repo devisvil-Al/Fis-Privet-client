@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/nullstyle.css">
+    <link rel="stylesheet" href="./css/orderTicket.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+    <section class="preloader modal-hidden">
+        <img src="./img/main.gif" alt="preloader">
+    </section>
+
+    <div class="wrapper">
+        <div class="nav__continer">
+            <nav class="nav">
+                <button class="nav__btn nav__btn-back"></button>
+            </nav>
+            <p class="nav__title"><span class="nav__name">#NAME</span>, <span class="nav__header__title">купленные вами билеты на спортивные события</span></p>
+        </div>
+
+        <section class="sections">
+            <section class="ticket section section-active ">
+                <div class="container"></div>
+                <button class="getTicket">Прислать мне билеты</button>
+            </section>
+        </section>
+    </div>
+    
+    <template id="ticket">
+        <div class="qr">
+            <div class="qr__info">
+                <h2>Ваш билет: <p class="name"></p></h2>
+                <div class="">
+                    <p class="date">Дата: <span>22.02.2022</span></p>
+                    <p class="time">Время: <span>18:00</span></p>
+                </div>
+                <div class="">
+                    <p class="tribune">Трибуна: <span>1</span></p>
+                    <p class="row">Ряд: <span>1</span></p>
+                    <p class="place">Место: <span>1</span></p>
+                </div>
+            </div>
+            <img class="qr_img" src="http://localhost:3000/qr/66bc9ebc6ae1d714e8a87e3f" alt="">
+        </div>
+    </template>
+
+
+    <script src="./scripts/MyTickets.js" type="module"></script>
+
+</body>
+</html>

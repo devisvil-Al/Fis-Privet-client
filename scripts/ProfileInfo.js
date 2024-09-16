@@ -1,16 +1,21 @@
 import {api} from "./Api.js"
 import { check } from "./Components/init.js"
+import {levelName} from "./Components/init.js"
 
 const preloader = document.querySelector('.preloader')
 const backbtn = document.querySelector('.nav__btn')
 const navToggleBtns = document.querySelectorAll('.nav__toggle')
 const sections = document.querySelectorAll('.section__container')
 const cards = document.querySelectorAll('.card')
+const levelsTitle = document.querySelector('.levels__title')
+const levelsProgress = document.querySelector('.levels__progress')
+const gradient = levelsProgress.querySelector('.gradient')
 
 async function init (user){
     preloader.style.display = 'none'
-    console.log(user);
-    
+    levelsTitle.textContent = levelName[user.level]
+    gradient.style = `box-shadow: #DA6713 0px 0px 20px ${(levelsProgress.clientWidth / 100 *(user.cristall / user.levelInfo.requirement * 100))}px`
+    levelsProgress.querySelector('.progress').textContent = `${user.cristall} / ${user.levelInfo.requirement}`
     const {data} = await api.getProfileStatistics(user.telegramId)
     if(!data) return 
     renderStatistics(data)

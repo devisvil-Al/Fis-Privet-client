@@ -87,7 +87,10 @@
     border-radius: 20px;
     width: 80%;
     text-align: center;
-    padding: 5px 0
+    padding: 5px 0;
+    position: relative;
+    overflow: hidden;
+    height: 30px;
 }
 .levels__other_container {
     display: flex;
@@ -285,7 +288,22 @@
     border-radius: 8px;
 }
 
+.gradient{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+}
 
+.progress{
+    text-shadow: 1px 0 rgb(255, 255, 255),
+    0 -1px rgb(255, 255, 255),
+    -1px 0 rgb(255, 255, 255),
+    0 1px rgb(255, 255, 255);
+    position: relative;
+    z-index: 1000;
+}
 
 
 

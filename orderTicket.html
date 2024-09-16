@@ -34,7 +34,7 @@
                         БИЛЕТ</div>
                 </div>
             </nav>
-            <p class="nav__title"><span class="nav__name">#NAME</span>, выберите трибуну наиболее комфортную для Вас</p>
+            <p class="nav__title"><span class="nav__name">#NAME</span>, <span class="nav__header__title">выберите трибуну наиболее комфортную для Вас</span></p>
         </div>
 
         <section class="sections">
@@ -97,11 +97,43 @@
                 <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
             </section>
 
+            <section class="payment section">
 
+            </section>
+
+            <section class="ticket section ">
+
+                <div class="container">
+                    
+                  
+                </div>
+                <button class="getTicket">Прислать мне билеты</button>
+            </section>
+
+            
         </section>
 
     </div>
     
+
+    <template id="ticket">
+        <div class="qr">
+            <div class="qr__info">
+                <h2>Ваш билет:</h2>
+                <div class="">
+                    <p class="date">Дата: <span>22.02.2022</span></p>
+                    <p class="time">Время: <span>18:00</span></p>
+                </div>
+                <div class="">
+                    <p class="tribune">Трибуна: <span>1</span></p>
+                    <p class="row">Ряд: <span>1</span></p>
+                    <p class="place">Место: <span>1</span></p>
+                </div>
+            </div>
+            <img class="qr_img" src="http://localhost:3000/qr/66bc9ebc6ae1d714e8a87e3f" alt="">
+        </div>
+    </template>
+
     <script type="module" src="./scripts/orderTicket.js"></script>
 
 </body>
