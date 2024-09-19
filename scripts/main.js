@@ -67,7 +67,7 @@ function init(user){
         modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
-        }, 2000)
+        }, 3000)
     }
 }
 

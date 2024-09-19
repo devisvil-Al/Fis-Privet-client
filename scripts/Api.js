@@ -4,7 +4,6 @@
 class Api {
     url = 'https://fisprivet.onrender.com/'
     
-
     registry(body){
         return fetch(this.url + 'user/registry', {
             method: 'POST',

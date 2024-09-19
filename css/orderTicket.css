@@ -247,6 +247,7 @@
 }
 .logo {
     min-width: 66px;
+    width: 66px;
     height: 66px;
     background-color: #DA6713;
     display: -webkit-box;
@@ -983,11 +984,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-
     -webkit-box-align: start;
-
         -ms-flex-align: start;
-
             align-items: flex-start;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
