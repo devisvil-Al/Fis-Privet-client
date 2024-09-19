@@ -1,6 +1,7 @@
 import { api } from "./Api.js";
 import { check } from "./Components/init.js";
 
+
 const ticketContainer = document.querySelector('.container')
 const templateTicket = document.querySelector('#ticket')
 const getTicketBtn = document.querySelector('.getTicket')
@@ -50,7 +51,7 @@ function renderTicket(ticket) {
     tribune.textContent = ticket.tribune
     row.textContent = ticket.row
     place.textContent = ticket.place
-    img.src = `http://localhost:3000/qr/${ticket._id}`
+    img.src = `${api.url}qr/${ticket._id}`
     ticketContainer.append(element)
 }
 

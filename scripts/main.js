@@ -19,6 +19,17 @@ const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
 
+function addMessage(str){
+    const modalMessage = document.querySelector('.modal-message')
+    modalMessage.classList.add('modal-message--visible')
+    modalMessage.textContent = str
+    setTimeout(() => {
+        modalMessage.classList.remove('modal-message--visible')
+        modalMessage.textContent = ''
+    }, 3000)
+
+}
+
 const app = window.Telegram.WebApp;
 app.ready()
 app.expand()
@@ -36,15 +47,15 @@ const configSliderActions = {
 }
 
 function init(user){
-        appData.user = user
-        api.getAppData(user.telegramId)
-        .then(res => {
-            if(res.success){
-                const {actions, sportEvents} = res
-                actions.forEach((action) => renderAction(action, user.telegramId))
-                sportEvents.forEach(renderSportEvents)
-            }
-        })
+    appData.user = user
+    api.getAppData(user.telegramId)
+    .then(res => {
+        if(res.success){
+            const {actions, sportEvents} = res
+            actions.forEach((action) => renderAction(action, user.telegramId))
+            sportEvents.forEach(renderSportEvents)
+        }
+    })
     cristall.textContent = user.cristall
     main.classList.remove('hidden__main')
     preloader.style.display = 'none'
@@ -79,7 +90,6 @@ async function renderAction (action, id){
                 } else if (res.action.key === 'subscribe') {
                     window.Telegram.WebApp.openTelegramLink('https://t.me/+mzwM8nGyOnA0MmIy');
                 }
-
                 setTimeout(() => {
                     btn.classList.add('slide__btn-active')
                     btn.textContent = 'собрать'
@@ -99,18 +109,27 @@ async function renderAction (action, id){
         price.classList.add('slide__cri-closed')
     }
     async function checkSubscribe(){
-        const res = await api.checkEventSubscribe(id, action.name)
-        if(res.success){
-            btn.classList.remove('slide__btn-active')
-            btn.classList.add('slide__btn-closed')
-            btn.textContent = 'завершено'
-            price.textContent = ''
-            price.classList.add('slide__cri-closed')
-            configSliderEvents.container.append(clone)
-        } else {
-            const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
-            const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
-            window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
+        try {
+            const res = await api.checkEventSubscribe(id, action.name)
+            if(res.success){
+                btn.classList.remove('slide__btn-active')
+                btn.classList.add('slide__btn-closed')
+                btn.textContent = 'завершено'
+                price.textContent = ''
+                price.classList.add('slide__cri-closed')
+                configSliderEvents.container.append(clone)
+            } else {
+                if(action.name === "Накопить 600 кр"){
+                    addMessage('Вы не выполнили условия события')
+                } else {
+                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
+                    const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
+                    window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
+                }
+            }
+        } catch (error) {
+            console.log(error)
+            addMessage('Вы не выполнили условия события')
         }
     }
     configSliderEvents.container.append(clone)
