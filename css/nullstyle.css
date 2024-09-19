@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,9 +25,15 @@ body{
     right: 0;
     bottom: 0;
     z-index: 1000;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     min-height: 100vh;
     background-color: white;
     max-width: 500px;
@@ -34,9 +41,15 @@ body{
 }
 
 .nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .nav__btn {
     width: 50px;
@@ -52,6 +65,8 @@ body{
     cursor: pointer;
 }
 .nav__toggle_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     /* gap: 5px; */
     border: solid 2px white;
@@ -63,6 +78,10 @@ body{
     padding: 16px;
     border-radius: 15px;
     cursor: pointer;
+    -webkit-transition: 
+    0.5s color, 0.5s background-color;
+    -o-transition: 
+    0.5s color, 0.5s background-color;
     transition: 
     0.5s color, 0.5s background-color;
 
@@ -76,10 +95,28 @@ body{
     padding: 20px;
     background-color: #DA6713;
     min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     /* justify-content: space-between; */
     gap: 20px;
+}
+
+@-webkit-keyframes switch {
+    0%{
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 @keyframes switch {
@@ -102,9 +139,15 @@ body{
     max-width: 500px;
     z-index: 1000;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-color: rgb(0, 0, 0);
     margin: auto;
     text-align: center;
@@ -114,5 +157,6 @@ body{
 }
 
 .modal-message--visible{
-    animation: switch 3s;
+    -webkit-animation: switch 3s;
+            animation: switch 3s;
 }
