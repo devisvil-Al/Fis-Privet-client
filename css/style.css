@@ -20,6 +20,20 @@
     margin: auto;
 }
 
+.modal__greetings{
+    z-index: 1001;
+}
+
+.modal__logo{
+    width: 80%;
+}
+.modal__name{
+    color: #DA6713;
+}
+.modal__title{
+    line-height: 32px;
+    height: 64px;
+}
 
 .main {
     /* height: 100vh; */
