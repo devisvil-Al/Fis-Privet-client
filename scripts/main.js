@@ -62,14 +62,14 @@ function init(user){
     mainLevel.textContent = `${user.level} ур. ${levelName[user.level]}`
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
-    modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.svg'
+    modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
-    if(document.referrer.includes('https://web.telegram.org/')){
+    // if(document.referrer.includes('https://web.telegram.org/')){
         modalGreetings.classList.add('modal-visible')
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
         }, 3000)
-    }
+    // }
 }
 
 async function renderAction (action, id){
