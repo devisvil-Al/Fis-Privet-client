@@ -27,12 +27,13 @@ function addMessage(str){
         modalMessage.classList.remove('modal-message--visible')
         modalMessage.textContent = ''
     }, 3000)
-
 }
 
 const app = window.Telegram.WebApp;
 app.ready()
 app.expand()
+console.log(app);
+
 app.isClosingConfirmationEnabled = true;
 
 const appData = {sportEvent : {}, action : {}, user : {}}
@@ -64,12 +65,12 @@ function init(user){
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
-    // if(document.referrer.includes('https://web.telegram.org/')){
+    if(document.referrer.includes('https://web.telegram.org/')){
         modalGreetings.classList.add('modal-visible')
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
         }, 3000)
-    // }
+    }
 }
 
 async function renderAction (action, id){
