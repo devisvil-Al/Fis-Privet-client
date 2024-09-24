@@ -32,7 +32,11 @@ function addMessage(str){
 const app = window.Telegram.WebApp;
 app.ready()
 app.expand()
-console.log(document.referrer);
+
+app.onEvent('mainButtonClicked', () => {
+    console.log('open');
+    
+})
 
 app.isClosingConfirmationEnabled = true;
 
