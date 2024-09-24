@@ -69,12 +69,12 @@ function init(user){
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
     if(open){
-        // if(document.referrer.includes('https://web.telegram.org/')){
+        if(document.referrer === 'https://web.telegram.org/'){
             modalGreetings.classList.add('modal-visible')
             setTimeout( () => {
                 modalGreetings.classList.remove('modal-visible') 
             }, 3000)
-        // }
+        }
     }
 }
 
