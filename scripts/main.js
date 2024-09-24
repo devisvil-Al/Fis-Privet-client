@@ -32,10 +32,11 @@ function addMessage(str){
 const app = window.Telegram.WebApp;
 app.ready()
 app.expand()
+let open = false
 
-app.onEvent('mainButtonClicked', () => {
+app.onEvent('app:started', () => {
     console.log('open');
-    
+    open = true
 })
 
 app.isClosingConfirmationEnabled = true;
@@ -63,18 +64,19 @@ function init(user){
     })
     cristall.textContent = user.cristall
     main.classList.remove('hidden__main')
-    
     mainLevel.textContent = `${user.level} ур. ${levelName[user.level]}`
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
-    // if(document.referrer.includes('https://web.telegram.org/')){
-        modalGreetings.classList.add('modal-visible')
-        setTimeout( () => {
-            modalGreetings.classList.remove('modal-visible') 
-        }, 3000)
-    // }
+    if(open){
+        // if(document.referrer.includes('https://web.telegram.org/')){
+            modalGreetings.classList.add('modal-visible')
+            setTimeout( () => {
+                modalGreetings.classList.remove('modal-visible') 
+            }, 3000)
+        // }
+    }
 }
 
 async function renderAction (action, id){
