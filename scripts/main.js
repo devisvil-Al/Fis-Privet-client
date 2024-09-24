@@ -30,13 +30,8 @@ function addMessage(str){
 }
 
 const app = window.Telegram.WebApp;
-
-let open = false
 console.log(document.referrer)
-app.onEvent('app:started', () => {
-    console.log('open');
-    open = true
-})
+
 
 app.isClosingConfirmationEnabled = true;
 
@@ -68,14 +63,14 @@ function init(user){
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
-    if(open){
-        if(document.referrer === 'https://web.telegram.org/'){
-            modalGreetings.classList.add('modal-visible')
-            setTimeout( () => {
-                modalGreetings.classList.remove('modal-visible') 
-            }, 3000)
-        }
+    if(document.referrer === 'https://web.telegram.org/'){
+        console.log('start');
+        modalGreetings.classList.add('modal-visible')
+        setTimeout( () => {
+            modalGreetings.classList.remove('modal-visible') 
+        }, 3000)
     }
+    
 }
 
 async function renderAction (action, id){
