@@ -30,10 +30,9 @@ function addMessage(str){
 }
 
 const app = window.Telegram.WebApp;
-app.ready()
-app.expand()
-let open = false
 
+let open = false
+console.log(document.referrer)
 app.onEvent('app:started', () => {
     console.log('open');
     open = true
@@ -194,6 +193,10 @@ backModalEvent.addEventListener('click', () => {
 })
 friendBtn.addEventListener('click', () => window.location.href = '../Friends.html')
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (e) => {
+    console.log(window);
+    
     check(init, api)
+    app.ready()
+    app.expand()
 })
