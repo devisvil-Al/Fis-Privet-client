@@ -2,6 +2,7 @@ import { api } from "./Api.js";
 import {wheelScroll} from "./Slider.js"
 import { check } from "./Components/init.js";
 import { levelName } from "./Components/init.js";
+import { disableBtn, enableBtn } from "./Components/init.js";
 
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
@@ -18,6 +19,7 @@ const backModalEvent = modalEvent.querySelector('.nav__btn-back')
 const templateAction = document.querySelector('#action').content
 const templateEvent = document.querySelector('#event').content
 const modalEventBtn = document.querySelector('.modal-event_btn')
+const pointIcon = document.querySelector('.point__icon')
 
 function addMessage(str){
     const modalMessage = document.querySelector('.modal-message')
@@ -58,13 +60,13 @@ function init(user){
     })
     cristall.textContent = user.cristall
     main.classList.remove('hidden__main')
-    mainLevel.textContent = `${user.level} ур. ${levelName[user.level]}`
+    mainLevel.textContent = `${user.level} ур. ${levelName[user.level].name}`
+    pointIcon.src = levelName[user.level].img
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     modalGreetings.querySelector('.modal__name') .textContent = user.firstName
     modalGreetings.querySelector('.modal__logo') .src = '../img/' + user.club + '.gif'
     preloader.style.display = 'none'
     if(document.referrer === 'https://web.telegram.org/'){
-        console.log('start');
         modalGreetings.classList.add('modal-visible')
         setTimeout( () => {
             modalGreetings.classList.remove('modal-visible') 
@@ -83,6 +85,7 @@ async function renderAction (action, id){
         btn.textContent = 'выполнить' 
         btn.addEventListener('click', setStateEvent)
         async function setStateEvent(){
+            disableBtn(btn)
             const res = await api.setEventState(id, action.name)
             if(res.success){
                 if(res.action.key === 'invite'){
@@ -100,6 +103,7 @@ async function renderAction (action, id){
                 }, 1000)
             }
         }
+        enableBtn(btn)
     } else if (action.state === 'start') {
         btn.classList.add('slide__btn-active')
         btn.textContent = 'собрать'
@@ -110,8 +114,9 @@ async function renderAction (action, id){
         price.textContent = ''
         price.classList.add('slide__cri-closed')
     }
-    async function checkSubscribe(){
+    async function checkSubscribe(e){
         try {
+            disableBtn(e.target)
             const res = await api.checkEventSubscribe(id, action.name)
             if(res.success){
                 btn.classList.remove('slide__btn-active')
@@ -129,8 +134,10 @@ async function renderAction (action, id){
                     window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
                 }
             }
+            enableBtn(e.target)
         } catch (error) {
             console.log(error)
+            enableBtn(e.target)
             addMessage('Вы не выполнили условия события')
         }
     }

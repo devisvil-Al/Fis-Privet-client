@@ -10,10 +10,14 @@ const cards = document.querySelectorAll('.card')
 const levelsTitle = document.querySelector('.levels__title')
 const levelsProgress = document.querySelector('.levels__progress')
 const gradient = levelsProgress.querySelector('.gradient')
+const levelLogo = document.querySelector('.levels__logo')
+const descriptionLevel = document.querySelector('.description')
 
 async function init (user){
     preloader.style.display = 'none'
-    levelsTitle.textContent = levelName[user.level]
+    levelsTitle.textContent = levelName[user.level].name
+    levelLogo.src = levelName[user.level].img
+    descriptionLevel.textContent = levelName[user.level].text
     gradient.style = `box-shadow: #DA6713 0px 0px 20px ${(levelsProgress.clientWidth / 100 *(user.cristall / user.levelInfo.requirement * 100))}px`
     levelsProgress.querySelector('.progress').textContent = `${user.cristall} / ${user.levelInfo.requirement}`
     const {data} = await api.getProfileStatistics(user.telegramId)

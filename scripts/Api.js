@@ -1,8 +1,8 @@
-'http://localhost:3000/'
+'http://localhost:3001/'
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'http://localhost:3000/'
+    url = 'http://localhost:3001/'
     
     registry(body){
         return fetch(this.url + 'user/registry', {
