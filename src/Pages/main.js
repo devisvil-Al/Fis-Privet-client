@@ -199,10 +199,8 @@ backModalEvent.addEventListener('click', () => {
 })
 friendBtn.addEventListener('click', () => window.location.href = 'Friends.html')
 
-window.addEventListener('DOMContentLoaded', (e) => {
-    console.log(window);
+
     
     check(init, api)
     app.ready()
     app.expand()
-})

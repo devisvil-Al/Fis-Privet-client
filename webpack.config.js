@@ -1,6 +1,6 @@
 const path = require('path'); // Импортируем модуль "path" для работы с путями файлов
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const loader = require('html-loader');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -28,11 +28,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/, // Регулярное выражение для обработки файлов с расширением .css
-        use: ['style-loader', 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
+        use: [MiniCssExtractPlugin.loader, 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
       },
       {
         test: /\.js$/, // Регулярное выражение для обработки файлов с расширением .js,
-        use: 'babel-loader',
+        // use: 'babel-loader',
         exclude: /node_modules/, // Исключаем папку с node_modules
       },
       {
@@ -43,6 +43,10 @@ module.exports = {
   },
   
   plugins: [
+    new MiniCssExtractPlugin({
+        filename: "styles/[name].css",
+        chunkFilename: "[id].css",
+    }),
     new HtmlWebpackPlugin({
         filename: "index.html",
         template: "src/index.html",
@@ -83,6 +87,7 @@ module.exports = {
         template: "src/Registry.html",
         chunks: ["registry"]
     }),
+  
   ],
 
   

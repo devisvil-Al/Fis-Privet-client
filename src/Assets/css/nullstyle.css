@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     border: 0;
-    -webkit-box-sizing: border-box;
             box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -25,14 +24,9 @@ body{
     right: 0;
     bottom: 0;
     z-index: 1000;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
             align-items: center;
     min-height: 100vh;
     background-color: #DA6713;
@@ -41,14 +35,9 @@ body{
 }
 
 .nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
+
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
             justify-content: space-between;
 }
 .nav__btn {
@@ -65,8 +54,6 @@ body{
     cursor: pointer;
 }
 .nav__toggle_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     /* gap: 5px; */
     border: solid 2px white;
@@ -78,10 +65,6 @@ body{
     padding: 16px;
     border-radius: 15px;
     cursor: pointer;
-    -webkit-transition: 
-    0.5s color, 0.5s background-color;
-    -o-transition: 
-    0.5s color, 0.5s background-color;
     transition: 
     0.5s color, 0.5s background-color;
 
@@ -139,14 +122,9 @@ body{
     max-width: 500px;
     z-index: 1000;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
+
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
             align-items: center;
     background-color: rgb(0, 0, 0);
     margin: auto;
@@ -157,7 +135,6 @@ body{
 }
 
 .modal-message--visible{
-    -webkit-animation: switch 3s;
             animation: switch 3s;
 }
 
