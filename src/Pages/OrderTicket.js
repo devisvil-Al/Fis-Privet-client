@@ -1,5 +1,8 @@
-import { api } from "./Api.js"
-import { check } from "./Components/init.js"
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/orderTicket.css'
+
+import { api } from "/src/Components/Api.js"
+import { check } from "/src/Components/init.js"
 
 // Выбор трибуны
 const toggle = document.querySelector('.toggle')
@@ -41,7 +44,7 @@ const titles = [
 
 function init(user){
     if(user.tickets.find(item => item.event === appData.event._id)){
-        window.location.href = '../index.html'
+        window.location.href = 'index.html'
     }
     appData.user = user
     navName.textContent = user.firstName
@@ -220,7 +223,7 @@ getTicketBtn.addEventListener('click', async () => {
 })
 
 backBtn.addEventListener('click', () => {
-    window.location.href = '../index.html'
+    window.location.href = 'index.html'
 })
 
 tribunes.forEach(tribune => {

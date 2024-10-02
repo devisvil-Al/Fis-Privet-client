@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/nullstyle.css">
-    <link rel="stylesheet" href="./css/orderTicket.css">
     <title>Ticket</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
     <section class="preloader modal-hidden">
-        <img src="./img/preloader-orange.gif" alt="preloader">
+        <img src='<%=require("/src/Assets/img/preloader-orange.gif")%>' alt="preloader">
     </section>
 
     <div class="wrapper">
@@ -58,12 +56,12 @@
                         <div class="tribune cornerRight-Bottom" data-active="containertribune-right-bottom-active" id="6"></div>
                     </div>
                 </div>
-                <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+                <button class="nextBtn" disabled><img src='<%=require("/src/Assets/img/rightVector-white.svg")%>' alt=""></button>
             </section>
 
             <section class="choisePlace section">
                 <div class="infoBlock">
-                    <div class="logo"><img src="./img/kristallLogo.svg" alt=""></div>
+                    <div class="logo"><img src='<%=require("/src/Assets/img/kristallLogo.svg")%>' alt=""></div>
                     <div class="place__info_container">
                         <p>Выберите понравившееся место!</p>
                     </div>
@@ -93,8 +91,8 @@
                     </div>
                 </div>
 
-                <button class="prevBtn"><img src="./img/rightVector-white.svg" alt=""></button>
-                <button class="nextBtn" disabled><img src="./img/rightVector-white.svg" alt=""></button>
+                <button class="prevBtn"><img src='<%=require("/src/Assets/img/rightVector-white.svg")%>' alt=""></button>
+                <button class="nextBtn" disabled><img src='<%=require("/src/Assets/img/rightVector-white.svg")%>' alt=""></button>
             </section>
 
             <section class="payment section">

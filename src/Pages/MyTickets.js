@@ -1,5 +1,8 @@
-import { api } from "./Api.js";
-import { check } from "./Components/init.js";
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/orderTicket.css'
+
+import { api } from "/src/Components/Api.js";
+import { check } from "/src/Components/init.js";
 
 
 const ticketContainer = document.querySelector('.container')
@@ -31,7 +34,7 @@ function init (user){
 }
 
 backBtn.addEventListener('click', () => {
-    window.location.href = '../index.html'
+    window.location.href = 'index.html'
 })
 
 

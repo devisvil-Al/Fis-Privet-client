@@ -1,6 +1,9 @@
-import {api} from "./Api.js"
-import { check } from "./Components/init.js"
-import {levelName} from "./Components/init.js"
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/profileinfo.css'
+
+import {api} from "/src/Components/Api.js"
+import { check } from "/src/Components/init.js"
+import {levelName} from "/src/Components/init.js"
 
 const preloader = document.querySelector('.preloader')
 const backbtn = document.querySelector('.nav__btn')
@@ -41,7 +44,7 @@ function renderStatistics(data){
 
 
 backbtn.addEventListener('click', () => {
-    window.location.href = '../index.html'
+    window.location.href = 'index.html'
 })
 
 navToggleBtns.forEach((btn, index) => btn.addEventListener('click', () => {

@@ -142,11 +142,11 @@
 }
 
 .corner{
-    background-image: url(../img/cornerTribune.svg);
+    /* background-image: url(../img/cornerTribune.svg); */
 }
 
 .corner-right{
-    background-image: url(../img/cornerTribuneRight.svg);
+    /* background-image: url(../img/cornerTribuneRight.svg); */
 }
 
 .tribune-right{

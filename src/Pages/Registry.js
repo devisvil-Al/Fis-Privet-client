@@ -1,5 +1,8 @@
-import { api } from "./Api.js"
-import { selectSlide, scrollCommand } from "./Slider.js"
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/registry.css'
+
+import { api } from "/src/Components/Api.js"
+import { selectSlide, scrollCommand } from "/src/Components/Slider.js"
 
 const main = document.querySelector('.main')
 const registryBtn = document.querySelector('.hello__registry')
@@ -64,7 +67,7 @@ function enableValidation(selectorInput, selectorSubmit){
 function send(data){
     api.registry(data)
         .then(res =>  {
-            if(res.ok) window.location.href = '../index.html'
+            if(res.ok) window.location.href = 'index.html'
         })
 }
 

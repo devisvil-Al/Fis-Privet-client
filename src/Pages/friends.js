@@ -1,6 +1,9 @@
-import { api } from "./Api.js"
-import { check } from "./Components/init.js"
-import { levelPoint } from "./Components/init.js"
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/friends.css'
+
+import { api } from "/src/Components/Api.js"
+import { check } from "/src/Components/init.js"
+import { levelPoint } from "/src/Components/init.js"
 
 
 const preloader = document.querySelector('.preloader')
@@ -12,9 +15,6 @@ const userName = document.querySelector('.noFriends__userName')
 const appData = {
     user: null
 }
-
-console.log(document.referrer);
-
 
 async function init(user){
     preloader.style.display = 'none'
@@ -80,7 +80,7 @@ function renderFriends (data, index){
 }
 
 backbtn.addEventListener('click', () => {
-    window.location.href = '../index.html'
+    window.location.href = 'index.html'
 })
 
 document.addEventListener('DOMContentLoaded', () => {

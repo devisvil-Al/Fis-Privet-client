@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/nullstyle.css">
-    <link rel="stylesheet" href="./css/orderTicket.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
     <section class="preloader modal-hidden">
-        <img src="./img/preloader-orange.gif" alt="preloader">
+        <img src='<%=require("/src/Assets/img/preloader-orange.gif")%>' alt="preloader">
     </section>
 
     <div class="wrapper">
@@ -44,12 +42,11 @@
                     <p class="place">Место: <span>1</span></p>
                 </div>
             </div>
-            <img class="qr_img" src="http://localhost:3000/qr/66bc9ebc6ae1d714e8a87e3f" alt="">
+            <img class="qr_img" src="" alt="">
         </div>
     </template>
 
 
-    <script src="./scripts/MyTickets.js" type="module"></script>
 
 </body>
 </html>

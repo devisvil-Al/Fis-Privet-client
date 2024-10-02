@@ -1,6 +1,9 @@
-import { check } from "./Components/init.js"
-import { api } from "./Api.js"
-import { enableValidation } from "./Components/validation.js"
+import '/src/Assets/css/nullstyle.css'
+import '/src/Assets/css/profile.css'
+
+import { check } from "/src/Components/init.js"
+import { api } from "/src/Components/Api.js"
+import { enableValidation } from "/src/Components/validation.js"
 
 
 
@@ -126,7 +129,7 @@ preferencesVariables.forEach((variable) => {
         variable.querySelector('input').checked = true
     })
 })
-backbtn.addEventListener('click', () =>  window.location.href = '../index.html')
+backbtn.addEventListener('click', () =>  window.location.href = 'index.html')
 toggles.forEach((toggle) => {
     toggle.addEventListener('click', () => {
         toggle.previousElementSibling.checked = !toggle.previousElementSibling.checked
