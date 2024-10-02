@@ -135,7 +135,7 @@ body{
 }
 
 .modal-message--visible{
-            animation: switch 3s;
+    animation: switch 3s;
 }
 
 .preloader{
