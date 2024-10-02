@@ -1,1 +1,1 @@
-import './Assets/css/politic.css'
+import '../Assets/css/politic.css'

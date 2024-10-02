@@ -19,7 +19,7 @@ module.exports = {
     filename: 'scripts/[name].js', // Имя выходного файла сборки
     path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
     asyncChunks: true,
-    publicPath: '/dist/',
+    publicPath: './',
     assetModuleFilename: './Assets/[name][ext]',
     
   },

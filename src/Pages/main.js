@@ -1,6 +1,6 @@
-import './Assets/css/nullstyle.css'
-import './Assets/css/style.css'
-import kristall from './Assets/img/kristall1.svg'
+import '../Assets/css/nullstyle.css'
+import '../Assets/css/style.css'
+import kristall from '../Assets/img/kristall1.svg'
 
 import { api } from "/src/Components/Api.js";
 import {wheelScroll} from "/src/Components/Slider.js"

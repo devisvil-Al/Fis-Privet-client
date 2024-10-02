@@ -1,5 +1,5 @@
-import './Assets/css/nullstyle.css'
-import './Assets/css/orderTicket.css'
+import '../Assets/css/nullstyle.css'
+import '../Assets/css/orderTicket.css'
 
 import { api } from "/src/Components/Api.js";
 import { check } from "/src/Components/init.js";
