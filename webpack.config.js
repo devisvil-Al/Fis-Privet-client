@@ -16,11 +16,11 @@ module.exports = {
 
   output: {
     clean: true, // Очищаем каталог dist
-    filename: 'scripts/[name].js', // Имя выходного файла сборки
+    filename: '[name][contenthash].js', // Имя выходного файла сборки
     path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
     asyncChunks: true,
     publicPath: './',
-    assetModuleFilename: './Assets/[name][ext]',
+    assetModuleFilename: '[name][ext]',
     
   },
 
@@ -28,7 +28,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/, // Регулярное выражение для обработки файлов с расширением .css
-        use: [MiniCssExtractPlugin.loader, 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
+        use: ['style-loader', 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
       },
       {
         test: /\.js$/, // Регулярное выражение для обработки файлов с расширением .js,
@@ -43,10 +43,6 @@ module.exports = {
   },
   
   plugins: [
-    new MiniCssExtractPlugin({
-        filename: "styles/[name].css",
-        chunkFilename: "[id].css",
-    }),
     new HtmlWebpackPlugin({
         filename: "index.html",
         template: "src/index.html",
@@ -94,8 +90,10 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname), // Каталог для статики
+      directory: path.join(__dirname, 'dist'),
     },
+    hot: true,
+    port: 8080,
     open: true, // Автоматически открывать браузер
   },
 
