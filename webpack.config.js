@@ -16,10 +16,10 @@ module.exports = {
 
   output: {
     clean: true, // Очищаем каталог dist
-    filename: './scripts/[name].js', // Имя выходного файла сборки
+    filename: 'scripts/[name].js', // Имя выходного файла сборки
     path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
     asyncChunks: true,
-    publicPath: './',
+    publicPath: '/dist/',
     assetModuleFilename: './assets/[name][ext]',
     
   },
