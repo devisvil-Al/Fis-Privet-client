@@ -138,3 +138,6 @@ body{
             animation: switch 3s;
 }
 
+.preloader{
+    display: none;
+}
