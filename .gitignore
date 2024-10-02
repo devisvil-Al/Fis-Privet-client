@@ -1,2 +1,4 @@
 node_modules/
-ТЗ.txt
+dist/
+# Local Netlify folder
+.netlify

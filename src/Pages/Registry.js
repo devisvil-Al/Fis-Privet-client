@@ -1,5 +1,5 @@
-import '/src/Assets/css/nullstyle.css'
-import '/src/Assets/css/registry.css'
+import './Assets/css/nullstyle.css'
+import './Assets/css/registry.css'
 
 import { api } from "/src/Components/Api.js"
 import { selectSlide, scrollCommand } from "/src/Components/Slider.js"

@@ -20,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
     asyncChunks: true,
     publicPath: '/dist/',
-    assetModuleFilename: './assets/[name][ext]',
+    assetModuleFilename: './Assets/[name][ext]',
     
   },
 
