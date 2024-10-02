@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script defer src="./scripts/registry.js"></script><link href="./styles/registry.css" rel="stylesheet"></head>
+<body>
+    
+    <section class="preloader modal-hidden">
+        <img src='././Assets/main.gif' alt="preloader">
+    </section>
+
+    <main class="main">
+        <section class="animation"></section>
+    
+        <section class="hello">
+            <div class="">
+                <h2 class="hello__title">Добро пожаловать</h2>
+                <p class="hello__text">Пройдите регистрацию в мобильном приложении или авторизируйтесь.</p>
+                <button class="hello__registry">Регистрация</button>
+            </div>
+
+            <div class="hello__telegram">
+                <p class="hello__telegram_id">@telegramId</p>
+                <p>Улучшите свой пользовательский опыт
+                    Как мы можем обращаться к Вам? 
+                </p>
+            </div>
+        </section>
+
+
+        <section class="form__container">
+            <form class="form">
+                <input type="text" name="firstName" placeholder="Введите ваше имя" required>
+                <input type="text" name="lastName" placeholder="Введите вашу фамилию" required>
+                <a class="politic" href="./Politic.html">Подтверждая, вы соглашаетесь с  Политикой
+                    конфиденциальности и на Обработку персональных данных.
+                </a>
+                <button class="submit" disabled>Подтверждаю</button>
+            </form>
+        </section>
+
+        <section class="quiz">
+            <div class="quiz__indicator">
+                <span class="active"></span>
+                <span></span>
+            </div>
+            <div class="quiz__container">
+                <div class="quiz__slider">
+                    <h2 class="quiz__slider_title"><span class="quiz__user_name"></span>, выберите любимое спортивное общество</h2>
+                    <div class="quiz__slider_container">
+                        <div class="quiz__slide disabled"><img src='././Assets/Спартак.svg' alt="Спартак"></div>
+                        <div class="quiz__slide disabled"><img src='././Assets/Динамо.svg' alt="Динамо"></div>
+                        <div class="quiz__slide slide_active"><img src='././Assets/Кристалл.svg' alt="Кристалл"></div>
+                        <div class="quiz__slide disabled"><img src='././Assets/ЦСКА.svg' alt="ЦСКА"></div>
+                    </div>
+                </div>
+
+                <div class="quiz__question">
+                    <h2>Выберите интересующую вас команду</h2>
+                    <form action="">
+                        <input type="radio" name="team" class="form__input_check"><label for="">Женская пляжная команда</label>
+                        <input type="radio" name="team" class="form__input_check"><label for="">Женская мини-футбольная команда</label>
+                        <input type="radio" name="team" class="form__input_check"><label for="">Мужская мини-футбольная команда</label>
+                        <input type="radio" name="team" class="form__input_check"><label for="">Мужская пляжная команда</label>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="quiz__slider_controller">
+                <button class="slider__btn left__btn" ><img src='././Assets/leftVector.svg' alt=""></button>
+                <button class="slider__btn right__btn " disabled><img src='././Assets/rightVector.svg' alt=""></button>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="./scripts/registry.js"></script>
+
+</body>
+</html>
