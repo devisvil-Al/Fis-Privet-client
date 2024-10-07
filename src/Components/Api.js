@@ -1,8 +1,9 @@
+
 'http://localhost:3001/'
 'https://fisprivet.onrender.com/'
 
 class Api {
-    url = 'http://localhost:3001/'
+    url = process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : 'https://fisprivet.onrender.com/'
     
     registry(body){
         return fetch(this.url + 'user/registry', {
