@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="../../Assets/css/nullstyle.css">
+    <link rel="stylesheet" href="../../Assets/css/orderTicket.css">
+    <script defer type="module" src="../../JS/OrderTicket.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+    <section class="preloader modal-hidden">
+        <img src='../../Assets/img/preloader-orange.gif' alt="preloader">
+    </section>
+
+    <div class="wrapper">
+        <div class="nav__continer">
+            <nav class="nav">
+                <button class="nav__btn nav__btn-back"></button>
+                <div class="nav__step_container">
+                    <div class="nav__step nav__step-active">
+                        <div class="nav__step_progress_container">
+                            <div class="nav__step_progress nav__step_progress-active"></div>
+                            <div class="nav__step_progress"></div>
+                        </div>
+                        МЕСТО
+                    </div>
+                    <div class="nav__step">
+                        <div class="nav__step_progress"></div>
+                        ОПЛАТА</div>
+                    <div class="nav__step">
+                        <div class="nav__step_progress"></div>
+                        БИЛЕТ</div>
+                </div>
+            </nav>
+            <p class="nav__title"><span class="nav__name">#NAME</span>, <span class="nav__header__title">выберите трибуну наиболее комфортную для Вас</span></p>
+        </div>
+
+        <section class="sections">
+            <section class="stadion section section-active">
+                <div class="stadion__container">
+                    <div class="tribune__container">
+                        <div class="tribune cornerLeft-Top"  data-active="cornerTribune-left-top-active" id="1"></div>
+                        <div class="tribune tribune-left" data-active="tribuneLeft-active" id="2.1"></div>
+                        <div class="tribune tribune-left" data-active="tribuneLeft-active" id="2.2"></div>
+                        <div class="tribune tribune-left" data-active="tribuneLeft-active" id="2.3"></div>
+                        <div class="tribune tribune-left" data-active="tribuneLeft-active" id="2.4"></div>
+                        <div class="tribune cornerLeft-Bottom" data-active="containertribune-left-bottom-active" id="3"></div>
+                    </div>
+                    <div class="gamePlace"></div>
+                    <div class="tribune__container">
+                        <div class="tribune cornerRight-Top" data-active="cornerTribune-right-top-active" id="4"></div>
+                        <div class="tribune tribune-right" data-active="tribuneRight-active" id="5.1"></div>
+                        <div class="tribune tribune-middle-right1" data-active="tribuneMiddleRight1-active" id="5.2"></div>
+                        <div class="tribune tribune-middle-right2" data-active="tribuneMiddleRight2-active" id="5.3"></div>
+                        <div class="tribune tribune-right" data-active="tribuneRight-active" id="5.4"></div>
+                        <div class="tribune cornerRight-Bottom" data-active="containertribune-right-bottom-active" id="6"></div>
+                    </div>
+                </div>
+                <button class="nextBtn" disabled><img src='../../Assets/img/rightVector-white.svg' alt=""></button>
+            </section>
+
+            <section class="choisePlace section">
+                <div class="infoBlock">
+                    <div class="logo"><img src='../../Assets/img/kristallLogo.svg' alt=""></div>
+                    <div class="place__info_container">
+                        <p>Выберите понравившееся место!</p>
+                    </div>
+                </div>
+
+                <div class="scrollContainer" tabindex="0">
+                    <div class="place__container"></div>
+                </div>
+
+
+                <div class="notification__input_container">
+                    <label>Увеличить трибуну</label>
+                    <input type="radio" class="form__input radio">
+                    <div class="toggle">
+                        <div class="toggle__round"></div>
+                    </div>
+                </div>
+
+                <div class="total">
+                    <div class="cri_container">
+                        <p class="cri_title">Потратить кристаллы</p>
+                        <input placeholder="у вас 800 кристаллов" class="cri__input"/>
+                    </div>
+                    <div class="cri_container">
+                        <p class="money_total">Цена билетов: <span>0</span>р.</p>
+                        <p class="money_total-true">Итого: <span>0</span>р.</p>
+                    </div>
+                </div>
+
+                <button class="prevBtn"><img src='../../Assets/img/rightVector-white.svg' alt=""></button>
+                <button class="nextBtn" disabled><img src='../../Assets/img/rightVector-white.svg' alt=""></button>
+            </section>
+
+            <section class="payment section">
+
+            </section>
+
+            <section class="ticket section ">
+
+                <div class="container">
+                    
+                  
+                </div>
+                <button class="getTicket">Прислать мне билеты</button>
+            </section>
+
+            
+        </section>
+
+    </div>
+    
+
+    <template id="ticket">
+        <div class="qr">
+            <div class="qr__info">
+                <h2>Ваш билет:</h2>
+                <div class="">
+                    <p class="date">Дата: <span>22.02.2022</span></p>
+                    <p class="time">Время: <span>18:00</span></p>
+                </div>
+                <div class="">
+                    <p class="tribune">Трибуна: <span>1</span></p>
+                    <p class="row">Ряд: <span>1</span></p>
+                    <p class="place">Место: <span>1</span></p>
+                </div>
+            </div>
+            <img class="qr_img" src="http://localhost:3000/qr/66bc9ebc6ae1d714e8a87e3f" alt="">
+        </div>
+    </template>
+
+</body>
+</html>

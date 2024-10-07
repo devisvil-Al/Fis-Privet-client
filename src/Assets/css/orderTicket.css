@@ -1016,3 +1016,33 @@
     text-transform: uppercase;
    
 }
+
+
+.cornerTribune-right-top-active{
+    background-image: url(../img/cornerTribune-right-top-active.svg);
+}
+.tribuneRight-active{
+    background-image: url(../img/tribuneRight-active.svg);
+}
+.tribuneMiddleRight1-active{
+    background-image: url(../img/tribuneMiddleRight1-active.svg);
+}
+.tribuneMiddleRight2-active{
+    background-image: url(../img/tribuneMiddleRight2-active.svg);
+}
+.tribuneRight-active{
+    background-image: url(../img/tribuneRight-active.svg);
+}
+.containertribune-right-bottom-active{
+    background-image: url(../img/containertribune-right-bottom-active.svg);
+}
+.cornerTribune-left-top-active{
+    background-image: url(../img/cornerTribune-left-top-active.svg);
+}
+.tribuneLeft-active{
+    background-image: url(../img/tribune-active.svg);
+}
+
+.containertribune-left-bottom-active{
+    background-image: url(../img/containertribune-left-bottom-active.svg);
+}
