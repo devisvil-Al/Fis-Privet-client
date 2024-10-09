@@ -1,11 +1,13 @@
 import {api} from "/src/Components/Api.js"
 import { check } from "/src/Components/init.js"
 import {levelName} from "/src/Components/init.js"
+import { createScene } from "/src/Components/Three.js"
 
 const preloader = document.querySelector('.preloader')
 const backbtn = document.querySelector('.nav__btn')
 const navToggleBtns = document.querySelectorAll('.nav__toggle')
 const sections = document.querySelectorAll('.section__container')
+const stoneContainer = document.querySelector('.levels__info__container')
 const cards = document.querySelectorAll('.card')
 const levelsTitle = document.querySelector('.levels__title')
 const levelsProgress = document.querySelector('.levels__progress')
@@ -16,11 +18,12 @@ const descriptionLevel = document.querySelector('.description')
 async function init (user){
     preloader.style.display = 'none'
     levelsTitle.textContent = levelName[user.level].name
-    levelLogo.src = levelName[user.level].img
+    // levelLogo.src = levelName[user.level].img
     descriptionLevel.textContent = levelName[user.level].text
     gradient.style = `box-shadow: #DA6713 0px 0px 20px ${(levelsProgress.clientWidth / 100 *(user.cristall / user.levelInfo.requirement * 100))}px`
     levelsProgress.querySelector('.progress').textContent = `${user.cristall} / ${user.levelInfo.requirement}`
     const {data} = await api.getProfileStatistics(user.telegramId)
+    createScene(stoneContainer)
     if(!data) return 
     renderStatistics(data)
     

@@ -138,9 +138,9 @@ body{
     animation: switch 3s;
 }
 
-.preloader{
+/* .preloader{
     display: none;
-}
+} */
 .wrapper{
     background-color: white;
     padding: 0;

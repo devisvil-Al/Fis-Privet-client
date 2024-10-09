@@ -66,7 +66,7 @@ function init(user){
     modalGreetings.querySelector('.modal__title').classList.add('modal__title-active')
     modalGreetings.querySelector('.modal__name').textContent = user.firstName
     modalGreetings.querySelector('.modal__logo').src = preloaderKristall
-
+    console.log('end')
     preloader.style.display = 'none'
     if(document.referrer === 'https://web.telegram.org/'){
         modalGreetings.classList.add('modal-visible')

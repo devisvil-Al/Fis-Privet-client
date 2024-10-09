@@ -138,9 +138,9 @@ body{
     animation: switch 3s;
 }
 
-.preloader{
+/* .preloader{
     display: none;
-}
+} */
 body{
     height: 190vh;
     overflow: hidden;
