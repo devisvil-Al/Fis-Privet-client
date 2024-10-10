@@ -15,6 +15,10 @@ const gradient = levelsProgress.querySelector('.gradient')
 const levelLogo = document.querySelector('.levels__logo')
 const descriptionLevel = document.querySelector('.description')
 
+const app = window.Telegram.WebApp;
+app.ready()
+app.isClosingConfirmationEnabled = true;
+
 async function init (user){
     preloader.style.display = 'none'
     levelsTitle.textContent = levelName[user.level].name
