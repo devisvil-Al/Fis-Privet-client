@@ -49,6 +49,8 @@ const configSliderActions = {
     container : containerEvents
 }
 
+Promise.resolve(2).then(x => x**x).then(x => x**x).then(data => console.log(data));
+
 function init(user){
     appData.user = user
     api.getAppData(user.telegramId)
