@@ -32,6 +32,7 @@ function touchEnd(e){
 }
 
 export function createScene(container) {
+    
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera( 50, 2, 0.01, 1000 );
     const renderer = new THREE.WebGLRenderer();
