@@ -35,7 +35,7 @@ export function createScene(container) {
     
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera( 50, 2, 0.01, 1000 );
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.domElement.classList.add('canvas')
     container.appendChild( renderer.domElement );
 
@@ -47,10 +47,10 @@ export function createScene(container) {
             gltf.scene.rotation.y += 0.001;
             renderer.render( scene, camera );
             renderer.setClearColor(0x000000, 0);
-            camera.position.z = 0.1
         };
         animation();
-
+        
+        camera.position.z = 0.5
         renderer.domElement.addEventListener('touchstart', touchStart)
         renderer.domElement.addEventListener('touchmove', (e) => touchMove(e, gltf))
         renderer.domElement.addEventListener('touchend', touchEnd)
