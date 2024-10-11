@@ -14,6 +14,9 @@ const levelsProgress = document.querySelector('.levels__progress')
 const gradient = levelsProgress.querySelector('.gradient')
 const levelLogo = document.querySelector('.levels__logo')
 const descriptionLevel = document.querySelector('.description')
+const activeBlock = document.querySelector('.nav__toggle__active_block')
+
+activeBlock.style.width = navToggleBtns[0].offsetWidth + 'px'
 
 const app = window.Telegram.WebApp;
 app.ready()
@@ -56,13 +59,14 @@ navToggleBtns.forEach((btn, index) => btn.addEventListener('click', () => {
     btn.classList.add('nav__toggle-active')
     sections.forEach(section => section.classList.remove('section-active'))
     sections[index].classList.add('section-active')
+    activeBlock.style.left = navToggleBtns[index].offsetLeft + 'px'
+    activeBlock.style.width = navToggleBtns[index].offsetWidth + 'px'
 }))
 
 cards.forEach((card) => {
     card.addEventListener('click', () => {
         card.classList.toggle('card-active')
     })
-    
 })
 
 document.addEventListener('DOMContentLoaded', () => {

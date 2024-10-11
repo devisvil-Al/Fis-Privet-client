@@ -20,11 +20,9 @@ function touchStart(e){
 
 function touchMove(e, gltf){
     if(settingDrag.isDragging){
-        
+        gltf.scene.rotation.y += -(settingDrag.positionState.x - e.touches[0].clientX) * 0.001
+        gltf.scene.rotation.x += -(settingDrag.positionState.y - e.touches[0].clientY) * 0.001
     }
-
-    gltf.scene.rotation.y += -(settingDrag.positionState.x - e.touches[0].clientX) * 0.0005
-    gltf.scene.rotation.x += -(settingDrag.positionState.y - e.touches[0].clientY) * 0.0005
 }
 
 function touchEnd(e){
@@ -34,7 +32,7 @@ function touchEnd(e){
 export function createScene(container) {
     
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera( 50, 2, 0.01, 1000 );
+    const camera = new THREE.PerspectiveCamera( 50, 2, 0.01, 10000 );
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.domElement.classList.add('canvas')
     container.appendChild( renderer.domElement );
@@ -50,7 +48,7 @@ export function createScene(container) {
         };
         animation();
         
-        camera.position.z = 0.5
+        camera.position.z = 0.1
         renderer.domElement.addEventListener('touchstart', touchStart)
         renderer.domElement.addEventListener('touchmove', (e) => touchMove(e, gltf))
         renderer.domElement.addEventListener('touchend', touchEnd)

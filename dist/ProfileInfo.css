@@ -186,10 +186,11 @@ body{
     /* gap: 5px; */
     border: solid 2px white;
     border-radius: 17.5px;
+    position: relative;
 }
 .nav__toggle {
     color: white;
-    background-color: #DA6713;
+    background-color: #da661300;
     padding: 16px 8px;
     border-radius: 15px;
     font-size: 13px;
@@ -200,10 +201,11 @@ body{
     0.5s color, 0.5s background-color;
     transition: 
     0.5s color, 0.5s background-color;
+    position: relative;
+    z-index: 2;
 
 }
 .nav__toggle-active{
-    background-color: white;
     color: #DA6713;
 }
 
@@ -327,6 +329,7 @@ body{
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+            perspective: 1000px;
 }
 .deposits__body > *:nth-child(1) {
     -ms-grid-row: 1;
@@ -352,28 +355,20 @@ body{
     background-color: white;
     border-radius: 20px;
     padding: 10px;
-    /* animation: noScaleCard 0.5s; */
+    transform-style: preserve-3d;
     position: relative;
+    transition: 1s;
+
 }
 .flip {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     height: 100%;
-    -webkit-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s;
+    transition: 0.5s ;
+    overflow: hidden; 
 }
 .card__img {
     margin: auto;
@@ -394,71 +389,32 @@ body{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    -webkit-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s;
+    transition: 0.5s;
     height: 100%;
+    transform: rotate3d(0, 1, 0, 180deg);
 }
-
-.card .flap{
-    display: none;
-}
-
-
-
-@-webkit-keyframes scaleCard {
-    0%{
-        -webkit-transform: rotateY(-180deg);
-                transform: rotateY(-180deg);
-    }
- 
-    100%{
-        -webkit-transform: rotateY(0deg);
-                transform: rotateY(0deg);
-        
-    }
+.flip, .flap {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
 }
 
 
-
-@keyframes scaleCard {
-    0%{
-        -webkit-transform: rotateY(-180deg);
-                transform: rotateY(-180deg);
-    }
- 
-    100%{
-        -webkit-transform: rotateY(0deg);
-                transform: rotateY(0deg);
-        
-    }
-}
 
 .card-active {
-    -webkit-animation: scaleCard 0.5s;
-            animation: scaleCard 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
 }
 
-.card-active .flip{
-    display: none;
+.card-active .flip {
 }
 
-.card-active .flap{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
 
 .writeOffs {
 }
@@ -597,4 +553,15 @@ body{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+}
+
+.nav__toggle__active_block{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border-radius: 15px;
+    transition: 0.5s;
+    z-index: 1;
 }
