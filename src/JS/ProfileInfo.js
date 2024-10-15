@@ -25,7 +25,7 @@ app.isClosingConfirmationEnabled = true;
 async function init (user){
     preloader.style.display = 'none'
     levelsTitle.textContent = levelName[user.level].name
-    // levelLogo.src = levelName[user.level].img
+    levelLogo.src = levelName[user.level].preloader
     descriptionLevel.textContent = levelName[user.level].text
     gradient.style = `box-shadow: #DA6713 0px 0px 20px ${(levelsProgress.clientWidth / 100 *(user.cristall / user.levelInfo.requirement * 100))}px`
     levelsProgress.querySelector('.progress').textContent = `${user.cristall} / ${user.levelInfo.requirement}`

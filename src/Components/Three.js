@@ -39,6 +39,8 @@ export function createScene(container) {
 
     const loader = new GLTFLoader();
     loader.load( api.url + 'model', function ( gltf ) {
+        const logo = document.querySelector('.levels__logo')
+        logo.remove()
         scene.add( gltf.scene );
         const animation  = () => {
             requestAnimationFrame( animation );
