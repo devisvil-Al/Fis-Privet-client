@@ -30,7 +30,7 @@ async function init (user){
     gradient.style = `box-shadow: #DA6713 0px 0px 20px ${(levelsProgress.clientWidth / 100 *(user.cristall / user.levelInfo.requirement * 100))}px`
     levelsProgress.querySelector('.progress').textContent = `${user.cristall} / ${user.levelInfo.requirement}`
     const {data} = await api.getProfileStatistics(user.telegramId)
-    createScene(stoneContainer)
+    createScene(stoneContainer, levelName[user.level].modelName)
     if(!data) return 
     renderStatistics(data)
     

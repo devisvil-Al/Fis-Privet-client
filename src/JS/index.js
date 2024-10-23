@@ -93,7 +93,11 @@ async function renderAction (action, id){
             const res = await api.setEventState(id, action.name)
             if(res.success){
                 if(res.action.key === 'invite'){
-                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
+                    const messageText = `Привет!
+Я теперь есть в новом приложении "Кристалл"! 
+Присоединяйся, будем соревноваться вместе: 
+https://t.me/PhiscooltBot?start=${id}
+Переходи по ссылке и получи свои первые 60 кристаллов!`;
                     const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
                     window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
                 } else if (res.action.key === 'subscribe') {
@@ -133,7 +137,11 @@ async function renderAction (action, id){
                 if(action.name === "Накопить 600 кр"){
                     addMessage('Вы не выполнили условия события')
                 } else {
-                    const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${id}`;
+                    const messageText = `Привет!
+Я теперь есть в новом приложении "Кристалл"! 
+Присоединяйся, будем соревноваться вместе: 
+https://t.me/PhiscooltBot?start=${id}
+Переходи по ссылке и получи свои первые 60 кристаллов!`;
                     const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
                     window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
                 }

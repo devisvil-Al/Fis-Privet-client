@@ -33,7 +33,8 @@ async function init(user){
 
     eventFriends(user)
     addFriends.addEventListener('click', () => {
-        const messageText = `Join me on this awesome app! Click here: https://t.me/PhiscooltBot?start=${user.telegramId}`;
+        const messageText = `Привет!
+Я теперь есть в новом приложении "Кристалл"! Присоединяйся, будем соревноваться вместе: https://t.me/PhiscooltBot?start=${user.telegramId}`;
         const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(messageText)}`;
         window.Telegram.WebApp.openTelegramLink(telegramShareUrl);
     })

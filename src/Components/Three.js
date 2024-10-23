@@ -29,16 +29,17 @@ function touchEnd(e){
     settingDrag.isDragging = false
 }
 
-export function createScene(container) {
+export function createScene(container, modelName) {
     
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera( 50, 2, 0.01, 10000 );
     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize( 240, 130 );
     renderer.domElement.classList.add('canvas')
     container.appendChild( renderer.domElement );
 
     const loader = new GLTFLoader();
-    loader.load( api.url + 'model', function ( gltf ) {
+    loader.load( api.url + 'model/' + modelName, function ( gltf ) {
         const logo = document.querySelector('.levels__logo')
         logo.remove()
         scene.add( gltf.scene );
@@ -50,7 +51,7 @@ export function createScene(container) {
         };
         animation();
         
-        camera.position.z = 0.1
+        camera.position.z = 0.09999999999999
         renderer.domElement.addEventListener('touchstart', touchStart)
         renderer.domElement.addEventListener('touchmove', (e) => touchMove(e, gltf))
         renderer.domElement.addEventListener('touchend', touchEnd)
