@@ -8,6 +8,8 @@ import topaz from '/src/Assets/img/userStoun/topaz.png'
 import saphire from '/src/Assets/img/userStoun/sapphire.png'
 
 export async function check (init, api){
+    // window.location.href = 'Registry.html'
+    
     const preloader = document.querySelector('.preloader')
     console.log('start');
     const tg = window.Telegram.WebApp
@@ -49,5 +51,14 @@ export function enableBtn (btn){
     btn.disabled = false
 }
 
+// Для блокировки сворачивания телеграмм окна
+const data = JSON.stringify({
+    eventType: 'web_app_setup_swipe_behavior',
+    eventData: {
+        allow_vertical_swipe : false,
+    },
+});
+  
+window.parent.postMessage(data, 'https://web.telegram.org');
 
 

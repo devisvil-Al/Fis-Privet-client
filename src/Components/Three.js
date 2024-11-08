@@ -20,8 +20,8 @@ function touchStart(e){
 
 function touchMove(e, gltf){
     if(settingDrag.isDragging){
-        gltf.scene.rotation.y += -(settingDrag.positionState.x - e.touches[0].clientX) * 0.001
-        gltf.scene.rotation.x += -(settingDrag.positionState.y - e.touches[0].clientY) * 0.001
+        gltf.scene.rotation.y += -(settingDrag.positionState.x - e.touches[0].clientX) * 0.00005
+        gltf.scene.rotation.x += -(settingDrag.positionState.y - e.touches[0].clientY) * 0.00005
     }
 }
 
