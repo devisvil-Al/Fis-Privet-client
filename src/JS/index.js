@@ -4,7 +4,6 @@ import { check, disableBtn, enableBtn, levelName } from "../Components/init.js";
 import kristall from '../Assets/img/kristall1.svg'
 import preloaderKristall from '../Assets/img/preloader-orange.gif'
 
-
 const modalGreetings = document.querySelector('.modal__greetings')
 const main = document.querySelector('.main')
 const mainLevel = document.querySelector('.point__level')
